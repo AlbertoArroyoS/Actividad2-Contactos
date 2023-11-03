@@ -35,13 +35,13 @@ public class ControladorActionListener implements ActionListener{
             vistaAdd.getCampoNombre().requestFocus();
         }
 		//Al pulsar boton OK de añadir contacto, añade nombre y telefono a la tabla
-		else if (e.getSource() == vistaAdd.getBotonOk()) {
+		else if (vistaAdd != null && e.getSource() == vistaAdd.getBotonOk()) {
             addDatosTabla();
             vistaAdd.setVisible(false);
         }
 		//Al pulsar cancelar de añadir contacto cierra y queda la principal
-		else if (e.getSource() == vistaAdd.getBotonCancel()) {
-            vistaAdd.setVisible(false);
+		else if (vistaAdd != null && e.getSource() == vistaAdd.getBotonCancel()) {
+           // vistaAdd.setVisible(false);
             vistaAdd.dispose();
         } 
 		//Al pulsar el boton editar de la tabla principal
@@ -50,9 +50,19 @@ public class ControladorActionListener implements ActionListener{
             vistaEditar.establecerListeners(this);
             vistaEditar.getCampoNombre().requestFocus();
         }
+		//Al pulsar boton OK edita contacto, cambia nombre y/o telefono a la tabla
+		else if (e.getSource() == vistaEditar.getBotonOk()) {
+            //metodo editar
+			vistaEditar.setVisible(false);
+        }
+		//Al pulsar cancelar de añadir contacto cierra y queda la principal
+		else if (e.getSource() == vistaEditar.getBotonCancel()) {
+           // vistaAdd.setVisible(false);
+			vistaEditar.dispose();
+        }
 		//Al pulsar el boton borrar de la tabla principal
 		else if (e.getSource() == vista.getBotonDelete()) {
-            // Aquí debes implementar la lógica para eliminar contactos
+            
         }
     }
 			

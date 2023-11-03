@@ -15,9 +15,6 @@ public class Main {
 		//llamamos al metodo de los listeners
 		vista.establecerListeners(controlador);
 		
-		
-		
-
 	}
 	
 }
