@@ -66,7 +66,7 @@ public class Vista extends JFrame{
 		botonAdd = new JButton("Añadir contacto");
 		botonAdd.setBounds(200, 550, 150, 30);
 		add(botonAdd);
-		
+	
 		botonEdit = new JButton("Editar");
 		botonEdit.setBounds(500, 350, 100, 30);
 		add(botonEdit);

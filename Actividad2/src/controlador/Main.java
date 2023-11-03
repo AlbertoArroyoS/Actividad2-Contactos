@@ -12,7 +12,8 @@ public class Main {
 		ControladorActionListener controlador = new ControladorActionListener(vista);
 		//llamamos al metodo de los listeners
 		vista.establecerListeners(controlador);
+		
 
 	}
-
+	
 }
