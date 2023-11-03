@@ -8,6 +8,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import controlador.Controlador;
+
 public class Vista extends JFrame{
 	
 	//Atributos de la clase, componentes que vamod a necesitar
@@ -85,5 +87,14 @@ public class Vista extends JFrame{
 		
 	}
 	
+	//creamos un metodo en la vista para tener acceso al controlador
+	//hay que hacer un metodo por cada evento que necesite ser escuchado
+	
+	public void establecerListeners(Controlador controlador) {
+		
+		botonAdd.addActionListener(controlador);
+		botonEdit.addActionListener(controlador);
+		botonDelete.addActionListener(controlador);
+	}
 
 }
