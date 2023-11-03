@@ -1,5 +1,7 @@
 package vista;
 
+import java.awt.Toolkit;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -8,7 +10,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import controlador.Controlador;
+import controlador.ControladorActionListener;
 
 public class Vista extends JFrame{
 	
@@ -38,6 +40,12 @@ public class Vista extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//decimos que no vamos a utilizar layout, lo posicionamos nosotros
 		setLayout(null);
+		//que no se pueda redimensionar por el usuario
+		setResizable(false);
+		//Nombre ventana
+		setTitle("Mis contactos");
+		//icono de la ventana
+		setIconImage(Toolkit.getDefaultToolkit().getImage("img/icono16.png"));
 		//funcion para inicializar las variables
 		initVariables();
 		//hacer visible la ventana (tiene que ser la ultima opcion del constructor)
@@ -90,11 +98,27 @@ public class Vista extends JFrame{
 	//creamos un metodo en la vista para tener acceso al controlador
 	//hay que hacer un metodo por cada evento que necesite ser escuchado
 	
-	public void establecerListeners(Controlador controlador) {
+	public void establecerListeners(ControladorActionListener controlador) {
 		
 		botonAdd.addActionListener(controlador);
 		botonEdit.addActionListener(controlador);
 		botonDelete.addActionListener(controlador);
+	}
+	
+	
+	//gettes y setters de los botones para acceder a ellos desde el controlador
+	
+	public JButton getBotonAdd() {
+		return botonAdd;
+	}
+	public DefaultTableModel getTableModel() {
+		return tableModel;
+	}
+	public JButton getBotonEdit() {
+		return botonEdit;
+	}
+	public JButton getBotonDelete() {
+		return botonDelete;
 	}
 
 }
