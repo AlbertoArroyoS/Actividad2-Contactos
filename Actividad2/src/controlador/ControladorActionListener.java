@@ -26,20 +26,26 @@ public class ControladorActionListener implements ActionListener{
     public void actionPerformed(ActionEvent e) {
 		//Aqui ponemos todo lo que hace click cuando le damos a los botones	
         
+		//Al pulsar boton añadir de la principal, abre secundaria y llama a los liseners de VistaAdd
 		if (e.getSource() == vista.getBotonAdd()) {
             vistaAdd = new VistaAdd(this);
             //Llamo a los listeners de VistaAdd
             vistaAdd.establecerListeners(this);
             vistaAdd.getCampoNombre().requestFocus();
-        } else if (e.getSource() == vistaAdd.getBotonOk()) {
+        }
+		//Al pulsar boton OK 
+		else if (e.getSource() == vistaAdd.getBotonOk()) {
             addDatosTabla();
             vistaAdd.setVisible(false);
-        } else if (e.getSource() == vistaAdd.getBotonCancel()) {
+        } 
+		else if (e.getSource() == vistaAdd.getBotonCancel()) {
             vistaAdd.setVisible(false);
             vistaAdd.dispose();
-        } else if (e.getSource() == vista.getBotonEdit()) {
+        } 
+		else if (e.getSource() == vista.getBotonEdit()) {
             // Aquí debes implementar la lógica para editar contactos
-        } else if (e.getSource() == vista.getBotonDelete()) {
+        } 
+		else if (e.getSource() == vista.getBotonDelete()) {
             // Aquí debes implementar la lógica para eliminar contactos
         }
     }
