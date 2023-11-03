@@ -48,21 +48,21 @@ public class Vista extends JFrame{
 		icono = new JLabel();
 		icono.setIcon(new ImageIcon("img/icono128.png"));
 		//colocarlo en la ventana
-		icono.setBounds(300, 33, 128, 128);
+		icono.setBounds(200, 33, 128, 128);
 		//añadir el icono al panel
 		add(icono);
 		
 		//botones
 		botonAdd = new JButton("Añadir contacto");
-		botonAdd.setBounds(10, 500, 150, 20);
+		botonAdd.setBounds(200, 550, 150, 30);
 		add(botonAdd);
 		
 		botonEdit = new JButton("Editar");
-		botonEdit.setBounds(10, 550, 100, 20);
+		botonEdit.setBounds(500, 350, 100, 30);
 		add(botonEdit);
 		
 		botonDelete = new JButton("Eliminar");
-		botonDelete.setBounds(10, 590, 100, 20);
+		botonDelete.setBounds(500, 300, 100, 30);
 		add(botonDelete);
 		
 		//Tabla
@@ -80,7 +80,7 @@ public class Vista extends JFrame{
 		
 		scrollPane = new JScrollPane(tablaContactos);
 		//ubicar el scroll pane
-		scrollPane.setBounds(250, 200, 300, 300);
+		scrollPane.setBounds(150, 200, 300, 300);
 		add(scrollPane);
 		
 	}
