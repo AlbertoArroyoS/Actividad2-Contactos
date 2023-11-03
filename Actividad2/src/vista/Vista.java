@@ -39,22 +39,51 @@ public class Vista extends JFrame{
 		//funcion para inicializar las variables
 		initVariables();
 		//hacer visible la ventana (tiene que ser la ultima opcion del constructor)
+		setVisible(true);
+		
 	}
 	//metodo para inicializar variables
 	private void initVariables() {
 		//crear el componente
 		icono = new JLabel();
-		icono.setIcon(new ImageIcon("img/icono.png"));
+		icono.setIcon(new ImageIcon("img/icono128.png"));
 		//colocarlo en la ventana
-		icono.setBounds(294, 33, 192, 183);
+		icono.setBounds(300, 33, 128, 128);
 		//añadir el icono al panel
 		add(icono);
 		
+		//botones
+		botonAdd = new JButton("Añadir contacto");
+		botonAdd.setBounds(10, 500, 150, 20);
+		add(botonAdd);
+		
+		botonEdit = new JButton("Editar");
+		botonEdit.setBounds(10, 550, 100, 20);
+		add(botonEdit);
+		
+		botonDelete = new JButton("Eliminar");
+		botonDelete.setBounds(10, 590, 100, 20);
+		add(botonDelete);
+		
+		//Tabla
+		
+		//1º crear el modelo
+		
+		//crear array con el nombre de las columnas
+		String[] nombreColumnas= {"Nombre", "Teléfono"};
+		tableModel = new DefaultTableModel(nombreColumnas,0);
+		
+		//2º crear la tabla
+		tablaContactos = new JTable(tableModel);
+		
+		//3º meter la tabla en el Scrollpane
+		
+		scrollPane = new JScrollPane(tablaContactos);
+		//ubicar el scroll pane
+		scrollPane.setBounds(250, 200, 300, 300);
+		add(scrollPane);
 		
 	}
-	
-	
-	
 	
 
 }
