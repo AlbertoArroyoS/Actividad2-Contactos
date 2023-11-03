@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
 
 import controlador.ControladorActionListener;
 
-public class Vista extends JFrame{
+public class VistaPrincipal extends JFrame{
 	
 	//Atributos de la clase, componentes que vamod a necesitar
 	
@@ -33,9 +33,9 @@ public class Vista extends JFrame{
 	private JScrollPane scrollPane;
 	
 	//Constructor para inicializar las variables
-	public Vista() {
+	public VistaPrincipal() {
 		//crear la ventana y establecerla
-		setBounds(100,100,800,800);
+		setBounds(100,100,700,700);
 		//establecer lo que hace el boton cerrar X
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//decimos que no vamos a utilizar layout, lo posicionamos nosotros

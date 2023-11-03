@@ -4,25 +4,46 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
-import vista.Vista;
+import vista.VistaPrincipal;
+import vista.VistaAdd;
 
 public class ControladorActionListener implements ActionListener{
 	
 	//referencia a la vista creando una variable
-	 Vista vista;
-	 
+	 VistaPrincipal vista;
+	 VistaAdd vistaAdd;
+
 	//Inicializar la variable en el constructor
 	 
-	public ControladorActionListener(Vista vista) {
+	public ControladorActionListener(VistaPrincipal vista) {
 		this.vista = vista;
+		
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		//Aqui ponemos todo lo que hace click cuando le damos a los botones
-		//como tenemos 3 botones
+    public void actionPerformed(ActionEvent e) {
+		//Aqui ponemos todo lo que hace click cuando le damos a los botones	
+        
 		if (e.getSource() == vista.getBotonAdd()) {
+            vistaAdd = new VistaAdd(this);
+            //Llamo a los listeners de VistaAdd
+            vistaAdd.establecerListeners(this);
+            vistaAdd.getCampoNombre().requestFocus();
+        } else if (e.getSource() == vistaAdd.getBotonOk()) {
+            addDatosTabla();
+            vistaAdd.setVisible(false);
+        } else if (e.getSource() == vistaAdd.getBotonCancel()) {
+            vistaAdd.setVisible(false);
+            vistaAdd.dispose();
+        } else if (e.getSource() == vista.getBotonEdit()) {
+            // Aquí debes implementar la lógica para editar contactos
+        } else if (e.getSource() == vista.getBotonDelete()) {
+            // Aquí debes implementar la lógica para eliminar contactos
+        }
+    }
+			
 			//lo que hace al darle al boton añadir
 			
 			//Comprobamos que la caja no esta vacia
@@ -41,17 +62,14 @@ public class ControladorActionListener implements ActionListener{
 		//	vista.getNombre().requestFocus();
 			
 		
-		}
-		if (e.getSource() == vista.getBotonEdit()) {
-			//lo que hace al darle al boton editar
-					
-		}
-		if (e.getSource() == vista.getBotonDelete()) {
-			//lo que hace al darle al boton eliminar
-			
-		}
-		
-	}
+
+	//metodo para añadir los datos de los campos nombre y telefono a la tabla
+	public void addDatosTabla() {
+    	String nombre = vistaAdd.getCampoNombre().getText();
+    	String telefono = vistaAdd.getCampoTelefono().getText();
+    	DefaultTableModel tableModel = vista.getTableModel();
+        tableModel.addRow(new String[]{nombre, telefono});
+    }
 	 
 	 
 	 

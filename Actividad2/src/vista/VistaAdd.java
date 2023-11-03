@@ -2,77 +2,92 @@ package vista;
 
 import java.awt.HeadlessException;
 import java.awt.Toolkit;
-
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.JTextField;
 
 import controlador.ControladorActionListener;
 
-public class VistaAdd extends JFrame{
+public class VistaAdd extends JFrame {
+    private JLabel nombre;
+    private JLabel telefono;
+    private JButton botonOk;
+    private JButton botonCancel;
+    private JTextField campoNombre;
+    private JTextField campoTelefono;
+    private ControladorActionListener controlador;
+    
+    //le pasamos por parametro el controlador
+    public VistaAdd(ControladorActionListener controlador) {
+        this.controlador = controlador;
+
+        // Crear la ventana y establecerla
+        setTitle("Añadir Contacto");
+        setBounds(100, 100, 400, 180);
+        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        setLayout(null); // No se recomienda, pero se mantiene por compatibilidad
+        setResizable(false);
+        setIconImage(Toolkit.getDefaultToolkit().getImage("img/icono16.png"));
+
+        // Llamar a initVariables para inicializar los componentes
+        initVariables();
+
+        // Hacer visible la ventana (debe ser la última opción del constructor)
+        setVisible(true);
+    }
+
+    private void initVariables() {
+        // Crear los componentes y configurarlos
+        nombre = new JLabel("Nombre");
+        nombre.setBounds(60, 10, 80, 20);
+        add(nombre);
+        
+        campoNombre = new JTextField();
+        campoNombre.setBounds(140, 10, 80, 20);
+        add(campoNombre);
+        
+        telefono = new JLabel("Teléfono");
+        telefono.setBounds(60, 40, 80, 20);
+        add(telefono);
+        
+        
+        campoTelefono = new JTextField();
+        campoTelefono.setBounds(140, 40, 80, 20);
+        add(campoTelefono);
+
+        botonOk = new JButton("Ok");
+        botonOk.setBounds(100, 80, 80, 30);
+        add(botonOk);
+
+        botonCancel = new JButton("Cancel");
+        botonCancel.setBounds(200, 80, 80, 30);
+        add(botonCancel);
+    }
+
+
+	public void establecerListeners(ControladorActionListener controlador) {
+        botonOk.addActionListener(controlador);
+        botonCancel.addActionListener(controlador);
+    }
 	
-	private JLabel nombre;
-	private JLabel telefono;
-	private JButton botonOk;
-	private JButton botonCancel;
-	
-	public VistaAdd() throws HeadlessException {
-		//crear la ventana y establecerla
-		setBounds(100,100,400,400);
-		//establecer lo que hace el boton cerrar X
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//decimos que no vamos a utilizar layout, lo posicionamos nosotros
-		setLayout(null);
-		//que no se pueda redimensionar por el usuario
-		setResizable(false);
-		//Nombre ventana
-		setTitle("Añadir Contacto");
-		//icono de la ventana
-		setIconImage(Toolkit.getDefaultToolkit().getImage("img/icono16.png"));
-		//funcion para inicializar las variables
-		initVariables();
-		//hacer visible la ventana (tiene que ser la ultima opcion del constructor)
-		setVisible(true);
+    
+    //getters
+
+	public JTextField getCampoNombre() {
+		return campoNombre;
 	}
-	
-	//metodo para inicializar variables
-		private void initVariables() {
-			//crear el componente
-			nombre = new JLabel();
-			//colocarlo en la ventana
-			nombre.setBounds(50, 5, 128, 128);
-			//añadir el icono al panel
-			add(nombre);
-			
-			//crear el componente
-			telefono = new JLabel();
-			//colocarlo en la ventana
-			telefono.setBounds(50, 33, 128, 128);
-			//añadir el icono al panel
-			add(telefono);
-			
-			//botones
-			botonOk = new JButton("Añadir contacto");
-			botonOk.setBounds(200, 550, 150, 30);
-			add(botonOk);
-		
-			botonCancel = new JButton("Editar");
-			botonCancel.setBounds(500, 350, 100, 30);
-			add(botonCancel);
-				
-		}
-		
-		public void establecerListeners(ControladorActionListener controlador) {
-			
-			botonOk.addActionListener(controlador);
-			botonCancel.addActionListener(controlador);
-	
-		}
-	
-	
+
+	public JTextField getCampoTelefono() {
+		return campoTelefono;
+	}
+    public JButton getBotonOk() {
+		return botonOk;
+	}
+
+	public JButton getBotonCancel() {
+		return botonCancel;
+	}
 
 }
+
