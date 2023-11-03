@@ -8,13 +8,14 @@ import javax.swing.table.DefaultTableModel;
 
 import vista.VistaPrincipal;
 import vista.VistaAdd;
+import vista.VistaEditar;
 
 public class ControladorActionListener implements ActionListener{
 	
 	//referencia a la vista creando una variable
 	 VistaPrincipal vista;
 	 VistaAdd vistaAdd;
-
+	 VistaEditar vistaEditar;
 	//Inicializar la variable en el constructor
 	 
 	public ControladorActionListener(VistaPrincipal vista) {
@@ -33,18 +34,23 @@ public class ControladorActionListener implements ActionListener{
             vistaAdd.establecerListeners(this);
             vistaAdd.getCampoNombre().requestFocus();
         }
-		//Al pulsar boton OK 
+		//Al pulsar boton OK de añadir contacto, añade nombre y telefono a la tabla
 		else if (e.getSource() == vistaAdd.getBotonOk()) {
             addDatosTabla();
             vistaAdd.setVisible(false);
-        } 
+        }
+		//Al pulsar cancelar de añadir contacto cierra y queda la principal
 		else if (e.getSource() == vistaAdd.getBotonCancel()) {
             vistaAdd.setVisible(false);
             vistaAdd.dispose();
         } 
+		//Al pulsar el boton editar de la tabla principal
 		else if (e.getSource() == vista.getBotonEdit()) {
-            // Aquí debes implementar la lógica para editar contactos
-        } 
+            vistaEditar = new VistaEditar(this);
+            vistaEditar.establecerListeners(this);
+            vistaEditar.getCampoNombre().requestFocus();
+        }
+		//Al pulsar el boton borrar de la tabla principal
 		else if (e.getSource() == vista.getBotonDelete()) {
             // Aquí debes implementar la lógica para eliminar contactos
         }

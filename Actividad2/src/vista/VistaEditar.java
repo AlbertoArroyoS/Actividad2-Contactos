@@ -8,7 +8,7 @@ import javax.swing.JTextField;
 
 import controlador.ControladorActionListener;
 
-public class VistaAdd extends JFrame {
+public class VistaEditar extends JFrame {
     private JLabel nombre;
     private JLabel telefono;
     private JButton botonOk;
@@ -18,11 +18,11 @@ public class VistaAdd extends JFrame {
     private ControladorActionListener controlador;
     
     //le pasamos por parametro el controlador
-    public VistaAdd(ControladorActionListener controlador) {
+    public VistaEditar(ControladorActionListener controlador) {
         this.controlador = controlador;
 
         // Crear la ventana y establecerla
-        setTitle("Añadir Contacto");
+        setTitle("Editar contacto");
         setBounds(100, 100, 400, 180);
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         setLayout(null); // No se recomienda, pero se mantiene por compatibilidad
