@@ -109,6 +109,8 @@ public class VistaPrincipal extends JFrame{
 	}
 	
 	
+	
+	
 	//gettes y setters de los botones para acceder a ellos desde el controlador
 	
 	public JButton getBotonAdd() {
@@ -122,6 +124,10 @@ public class VistaPrincipal extends JFrame{
 	}
 	public JButton getBotonDelete() {
 		return botonDelete;
+	}
+	//Obtener la fila seleccionada
+	public int getSelectedRow() {
+		return tablaContactos.getSelectedRow();
 	}
 
 }

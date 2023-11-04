@@ -92,4 +92,21 @@ public class VistaEditar extends JFrame {
 		return botonCancel;
 	}
 
+	public JLabel getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(JLabel nombre) {
+		this.nombre = nombre;
+	}
+
+	public JLabel getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(JLabel telefono) {
+		this.telefono = telefono;
+	}
+	
+
 }
