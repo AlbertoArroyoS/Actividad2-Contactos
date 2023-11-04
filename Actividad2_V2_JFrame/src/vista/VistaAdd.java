@@ -57,8 +57,9 @@ public class VistaAdd extends JFrame {
         		//donde empiezan y terminan los numeros en asci
         		boolean mayusculas = key >=65 && key <=90;
         		boolean minusculas = key >=97 && key <= 122;
+        		boolean espacio = key == 32;
         		//Si se introduce algo que no sean letras mayusculas o minusculas
-        		if (!(mayusculas || minusculas)) {
+        		if (!(mayusculas || minusculas || espacio)) {
         			e.consume();
         		}
         		
