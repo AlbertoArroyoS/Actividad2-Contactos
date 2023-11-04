@@ -42,7 +42,7 @@ public class VistaPrincipal extends JFrame{
 		//establecer lo que hace el boton cerrar X
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//decimos que no vamos a utilizar layout, lo posicionamos nosotros
-		setLayout(null);
+		getContentPane().setLayout(null);
 		//que no se pueda redimensionar por el usuario
 		setResizable(false);
 		//Nombre ventana
@@ -63,20 +63,20 @@ public class VistaPrincipal extends JFrame{
 		//colocarlo en la ventana
 		icono.setBounds(200, 33, 128, 128);
 		//añadir el icono al panel
-		add(icono);
+		getContentPane().add(icono);
 		
 		//botones
 		botonAdd = new JButton("Añadir contacto");
 		botonAdd.setBounds(200, 550, 150, 30);
-		add(botonAdd);
+		getContentPane().add(botonAdd);
 	
 		botonEdit = new JButton("Editar");
 		botonEdit.setBounds(500, 350, 100, 30);
-		add(botonEdit);
+		getContentPane().add(botonEdit);
 		
 		botonDelete = new JButton("Eliminar");
-		botonDelete.setBounds(500, 300, 100, 30);
-		add(botonDelete);
+		botonDelete.setBounds(500, 256, 100, 30);
+		getContentPane().add(botonDelete);
 		
 		//Tabla
 		
@@ -93,8 +93,8 @@ public class VistaPrincipal extends JFrame{
 		
 		scrollPane = new JScrollPane(tablaContactos);
 		//ubicar el scroll pane
-		scrollPane.setBounds(150, 200, 300, 300);
-		add(scrollPane);
+		scrollPane.setBounds(151, 189, 300, 300);
+		getContentPane().add(scrollPane);
 		
 	}
 	
