@@ -47,12 +47,18 @@ public class ControladorActionListener implements ActionListener{
         } 
 		//Al pulsar el boton editar de la tabla principal
 		else if (e.getSource() == vistaPrincipal.getBotonEdit()) {
-			vistaEditar = new VistaEditar(this);
-            vistaEditar.establecerListeners(this);
+			
             //vistaEditar.getCampoNombre().requestFocus();
-            ponerDatosVistaEditar();
+            int selectedRow = vistaPrincipal.obtenerFilaSeleccionada();
 
-            
+    		if (selectedRow >= 0) {
+    			vistaEditar = new VistaEditar(this);
+                vistaEditar.establecerListeners(this);
+    			ponerDatosVistaEditar();
+    		}else {
+    			JOptionPane.showMessageDialog(null,"Tiene que seleccionar una fila", "Aviso", JOptionPane.INFORMATION_MESSAGE);	
+    		}
+                
         }
 		//Al pulsar boton OK edita contacto, cambia nombre y/o telefono a la tabla
 		else if (vistaEditar != null && e.getSource() == vistaEditar.getBotonOk()) {
@@ -64,7 +70,9 @@ public class ControladorActionListener implements ActionListener{
 		//Al pulsar cancelar de la vista editar, añadir contacto cierra y queda la principal
 		else if (vistaEditar != null && e.getSource() == vistaEditar.getBotonCancel()) {
            // vistaAdd.setVisible(false);
+			vistaEditar.establecerListeners(this);
 			vistaEditar.dispose();
+			//vistaAdd.setVisible(false);
         }
 		//Al pulsar el boton borrar de la tabla principal
 		else if (e.getSource() == vistaPrincipal.getBotonDelete()) {
@@ -73,24 +81,6 @@ public class ControladorActionListener implements ActionListener{
         }
     }
 			
-			//lo que hace al darle al boton añadir
-			
-			//Comprobamos que la caja no esta vacia
-			//if(vista.getNombre(.getText().isEmpty())
-					//mensaje de error si no ponemos nombre
-				//	JOptionPane.showMessageDialog(null,"Nombre esta vacion", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-		
-			//añadir a la agenda
-		//	vista.getTableModel().addRow(new String[] {vista.getNombre().getText(), telefono});
-			
-			//restablecer la caja de texto
-		//	vista.getNombre().setText(null);
-			//restablecer telefono
-			
-			//poner el foco
-		//	vista.getNombre().requestFocus();
-			
-		
 
 	//metodo para añadir los datos de los campos nombre y telefono a la tabla
 	public void addDatosTabla() {
@@ -142,12 +132,6 @@ public class ControladorActionListener implements ActionListener{
 	    	}else {
 	    		DefaultTableModel tableModel = vistaPrincipal.getTableModel();
 	    		tableModel = vistaPrincipal.getTableModel();
-	    		/*
-	    		Object[] rowData = {nombreEditado, telefonoEditado};
-	    		tableModel.removeRow(filaSeleccionada);
-	    		tableModel.insertRow(filaSeleccionada, rowData);
-	            vistaAdd.setVisible(false);
-	            */
 	    		tableModel.setValueAt(nombreEditado, filaSeleccionada, 0);
 	    	    tableModel.setValueAt(telefonoEditado, filaSeleccionada, 1);
 	    		
