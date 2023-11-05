@@ -57,8 +57,7 @@ public class ControladorActionListener implements ActionListener{
 		else if (vistaEditar != null && e.getSource() == vistaEditar.getBotonOk()) {
             //metodo editar
 			vistaEditar.establecerListeners(this);
-			int selectedRow = vistaPrincipal.getSelectedRow();
-            editDatosTabla(selectedRow);
+			editDatosTabla();
 			vistaEditar.setVisible(false);
         }
 		//Al pulsar cancelar de añadir contacto cierra y queda la principal
@@ -108,7 +107,7 @@ public class ControladorActionListener implements ActionListener{
     }
 	
 	public void ponerDatosVistaEditar() {
-		int selectedRow = vistaPrincipal.getSelectedRow();
+		int selectedRow = vistaPrincipal.obtenerFilaSeleccionada();
 
 		if (selectedRow >= 0) {
 		    // Seleccionar la fila se encuentra en 'selectedRow'
@@ -123,45 +122,40 @@ public class ControladorActionListener implements ActionListener{
 		}
 		
 	}
-	public void editDatosTabla(int filaSeleccionada) {	
-		int selectedRow = vistaPrincipal.getSelectedRow();
+	public void editDatosTabla() {
+		
+		int filaSeleccionada = vistaPrincipal.obtenerFilaSeleccionada();
 
-		if (selectedRow >= 0) {
-		    // Seleccionar la fila se encuentra en 'selectedRow'
-		    // Puedes acceder a los datos de esa fila a través del modelo de tabla
-		    String nombre = vistaPrincipal.getTableModel().getValueAt(selectedRow, 0).toString();
-		    String telefono = vistaPrincipal.getTableModel().getValueAt(selectedRow, 1).toString();
-
-	        // Asignar los valores a los campos de edición en vistaEditar
-		    
-	        vistaEditar.getCampoNombre().setText(nombre);
-	        vistaEditar.getCampoTelefono().setText(telefono);
+		if (filaSeleccionada >= 0) {
+		   
+	       // Asignar los valores a los campos de edición en vistaEditar
 	        //Añadir los valores editados
-	        String nombreEditado = vistaAdd.getCampoNombre().getText();
-	    	String telefonoEditado = vistaAdd.getCampoTelefono().getText();
-	    	if(nombre.isEmpty()){
+	        String nombreEditado = vistaEditar.getCampoNombre().getText();
+	    	String telefonoEditado = vistaEditar.getCampoTelefono().getText();
+	    	if(nombreEditado.isEmpty()){
 	    		JOptionPane.showMessageDialog(null,"Nombre esta vacio", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-	    	}else if(telefono.isEmpty()){
+	    	}else if(telefonoEditado.isEmpty()){
 	    		JOptionPane.showMessageDialog(null,"Telefono esta vacio", "Aviso", JOptionPane.INFORMATION_MESSAGE);
 	    	}else {
 	    		DefaultTableModel tableModel = vistaPrincipal.getTableModel();
+	    		/*
 	    		Object[] rowData = {nombreEditado, telefonoEditado};
+	    		tableModel.removeRow(filaSeleccionada);
 	    		tableModel.insertRow(filaSeleccionada, rowData);
 	            vistaAdd.setVisible(false);
-	    	}
-	        
-	        
+	            */
+	    		tableModel.setValueAt(nombreEditado, filaSeleccionada, 0);
+	    	    tableModel.setValueAt(telefonoEditado, filaSeleccionada, 1);
+	    	    
+	    	    
+	    		
+	    	}  
 	        
         } else {
             // Mostrar un mensaje al usuario indicando que no hay fila seleccionada.
             JOptionPane.showMessageDialog(vistaPrincipal, "Selecciona un contacto para editar.", "Sin selección", JOptionPane.INFORMATION_MESSAGE);
         }
-		
-		
 
-	    if (selectedRow >= 0) {
-	       
-	    }
 	}
 	 
 	 

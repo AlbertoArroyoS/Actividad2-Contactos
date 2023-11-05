@@ -126,7 +126,7 @@ public class VistaPrincipal extends JFrame{
 		return botonDelete;
 	}
 	//Obtener la fila seleccionada
-	public int getSelectedRow() {
+	public int obtenerFilaSeleccionada() {
 		return tablaContactos.getSelectedRow();
 	}
 
