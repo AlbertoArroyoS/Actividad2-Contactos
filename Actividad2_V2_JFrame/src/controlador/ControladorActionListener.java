@@ -46,21 +46,23 @@ public class ControladorActionListener implements ActionListener{
         } 
 		//Al pulsar el boton editar de la tabla principal
 		else if (e.getSource() == vistaPrincipal.getBotonEdit()) {
-            vistaEditar = new VistaEditar(this);
+			vistaEditar = new VistaEditar(this);
             vistaEditar.establecerListeners(this);
             //vistaEditar.getCampoNombre().requestFocus();
-            int selectedRow = vistaPrincipal.getSelectedRow();
-            editDatosTabla(selectedRow);
+            ponerDatosVistaEditar();
 
             
         }
 		//Al pulsar boton OK edita contacto, cambia nombre y/o telefono a la tabla
-		else if (e.getSource() == vistaEditar.getBotonOk()) {
+		else if (vistaEditar != null && e.getSource() == vistaEditar.getBotonOk()) {
             //metodo editar
+			vistaEditar.establecerListeners(this);
+			int selectedRow = vistaPrincipal.getSelectedRow();
+            editDatosTabla(selectedRow);
 			vistaEditar.setVisible(false);
         }
 		//Al pulsar cancelar de añadir contacto cierra y queda la principal
-		else if (e.getSource() == vistaEditar.getBotonCancel()) {
+		else if (vistaEditar != null && e.getSource() == vistaEditar.getBotonCancel()) {
            // vistaAdd.setVisible(false);
 			vistaEditar.dispose();
         }
@@ -104,6 +106,23 @@ public class ControladorActionListener implements ActionListener{
     	}
     	
     }
+	
+	public void ponerDatosVistaEditar() {
+		int selectedRow = vistaPrincipal.getSelectedRow();
+
+		if (selectedRow >= 0) {
+		    // Seleccionar la fila se encuentra en 'selectedRow'
+		    // Puedes acceder a los datos de esa fila a través del modelo de tabla
+		    String nombre = vistaPrincipal.getTableModel().getValueAt(selectedRow, 0).toString();
+		    String telefono = vistaPrincipal.getTableModel().getValueAt(selectedRow, 1).toString();
+
+	        // Asignar los valores a los campos de edición en vistaEditar
+		    
+	        vistaEditar.getCampoNombre().setText(nombre);
+	        vistaEditar.getCampoTelefono().setText(telefono);
+		}
+		
+	}
 	public void editDatosTabla(int filaSeleccionada) {	
 		int selectedRow = vistaPrincipal.getSelectedRow();
 
