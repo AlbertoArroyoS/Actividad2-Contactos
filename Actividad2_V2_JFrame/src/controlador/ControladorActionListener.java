@@ -16,6 +16,7 @@ public class ControladorActionListener implements ActionListener{
 	 VistaPrincipal vistaPrincipal;
 	 VistaAdd vistaAdd;
 	 VistaEditar vistaEditar;
+	 
 	//Inicializar la variable en el constructor
 	 
 	public ControladorActionListener(VistaPrincipal vista) {
@@ -60,14 +61,15 @@ public class ControladorActionListener implements ActionListener{
 			editDatosTabla();
 			vistaEditar.setVisible(false);
         }
-		//Al pulsar cancelar de añadir contacto cierra y queda la principal
+		//Al pulsar cancelar de la vista editar, añadir contacto cierra y queda la principal
 		else if (vistaEditar != null && e.getSource() == vistaEditar.getBotonCancel()) {
            // vistaAdd.setVisible(false);
 			vistaEditar.dispose();
         }
 		//Al pulsar el boton borrar de la tabla principal
 		else if (e.getSource() == vistaPrincipal.getBotonDelete()) {
-            
+            vistaPrincipal.establecerListeners(this);
+            eliminarContacto();
         }
     }
 			
@@ -100,6 +102,7 @@ public class ControladorActionListener implements ActionListener{
     		JOptionPane.showMessageDialog(null,"Telefono esta vacio", "Aviso", JOptionPane.INFORMATION_MESSAGE);
     	}else {
     		DefaultTableModel tableModel = vistaPrincipal.getTableModel();
+    		tableModel = vistaPrincipal.getTableModel();
             tableModel.addRow(new String[]{nombre, telefono});
             vistaAdd.setVisible(false);
     	}
@@ -138,6 +141,7 @@ public class ControladorActionListener implements ActionListener{
 	    		JOptionPane.showMessageDialog(null,"Telefono esta vacio", "Aviso", JOptionPane.INFORMATION_MESSAGE);
 	    	}else {
 	    		DefaultTableModel tableModel = vistaPrincipal.getTableModel();
+	    		tableModel = vistaPrincipal.getTableModel();
 	    		/*
 	    		Object[] rowData = {nombreEditado, telefonoEditado};
 	    		tableModel.removeRow(filaSeleccionada);
@@ -146,8 +150,6 @@ public class ControladorActionListener implements ActionListener{
 	            */
 	    		tableModel.setValueAt(nombreEditado, filaSeleccionada, 0);
 	    	    tableModel.setValueAt(telefonoEditado, filaSeleccionada, 1);
-	    	    
-	    	    
 	    		
 	    	}  
 	        
@@ -157,7 +159,16 @@ public class ControladorActionListener implements ActionListener{
         }
 
 	}
+	public void eliminarContacto() {
+		int filaSeleccionada = vistaPrincipal.obtenerFilaSeleccionada();
+
+		if (filaSeleccionada >= 0) {
+			DefaultTableModel tableModel = vistaPrincipal.getTableModel();
+			tableModel.removeRow(filaSeleccionada);
+		}
+		
+	}
 	 
 	 
-	 
+ 
 }
