@@ -36,12 +36,14 @@ public class ControladorActionListener implements ActionListener{
             vistaAdd.getCampoNombre().requestFocus();
         }
 		//Al pulsar boton OK de añadir contacto, añade nombre y telefono a la tabla
-		else if (vistaAdd != null && e.getSource() == vistaAdd.getBotonOk()) {
+		//else if (vistaAdd != null && e.getSource() == vistaAdd.getBotonOk()) {
+		else if (e.getSource() == vistaAdd.getBotonOk()) {
             addDatosTabla();
           //  vistaAdd.setVisible(false);
         }
 		//Al pulsar cancelar de añadir contacto cierra y queda la principal
-		else if (vistaAdd != null && e.getSource() == vistaAdd.getBotonCancel()) {
+		//else if (vistaAdd != null && e.getSource() == vistaAdd.getBotonCancel()) {
+		else if (e.getSource() == vistaAdd.getBotonCancel()) {
            // vistaAdd.setVisible(false);
             vistaAdd.dispose();
         } 
@@ -61,14 +63,16 @@ public class ControladorActionListener implements ActionListener{
                 
         }
 		//Al pulsar boton OK edita contacto, cambia nombre y/o telefono a la tabla
-		else if (vistaEditar != null && e.getSource() == vistaEditar.getBotonOk()) {
+		//else if (vistaEditar != null && e.getSource() == vistaEditar.getBotonOk()) {
+		else if (e.getSource() == vistaEditar.getBotonOk()) {
             //metodo editar
 			vistaEditar.establecerListeners(this);
 			editDatosTabla();
 			vistaEditar.setVisible(false);
         }
 		//Al pulsar cancelar de la vista editar, añadir contacto cierra y queda la principal
-		else if (vistaEditar != null && e.getSource() == vistaEditar.getBotonCancel()) {
+		//else if (vistaEditar != null && e.getSource() == vistaEditar.getBotonCancel()) {
+		else if (e.getSource() == vistaEditar.getBotonCancel()) {
            // vistaAdd.setVisible(false);
 			vistaEditar.establecerListeners(this);
 			vistaEditar.dispose();
