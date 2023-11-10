@@ -17,6 +17,12 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import controlador.ControladorActionListener;
+import javax.swing.JPanel;
+import java.awt.Color;
+import java.awt.Image;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
 
 public class VistaPrincipal extends JFrame{
 	
@@ -37,11 +43,13 @@ public class VistaPrincipal extends JFrame{
 	private DefaultTableModel tableModel;
 	//contenedor con scroll
 	private JScrollPane scrollPane;
+	private JPanel panel;
+	private JLabel lblNewLabel;
 	
 	//Constructor para inicializar las variables
 	public VistaPrincipal() {
 		//crear la ventana y establecerla
-		setBounds(100,100,700,700);
+		setBounds(100,100,530,359);
 		//establecer lo que hace el boton cerrar X
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//decimos que no vamos a utilizar layout, lo posicionamos nosotros
@@ -60,26 +68,6 @@ public class VistaPrincipal extends JFrame{
 	}
 	//metodo para inicializar variables
 	private void initVariables() {
-		//crear el componente
-		icono = new JLabel();
-		icono.setIcon(new ImageIcon("img/icono128.png"));
-		//colocarlo en la ventana
-		icono.setBounds(200, 33, 128, 128);
-		//añadir el icono al panel
-		getContentPane().add(icono);
-		
-		//botones
-		botonAdd = new JButton("Añadir contacto");
-		botonAdd.setBounds(200, 550, 150, 30);
-		getContentPane().add(botonAdd);
-	
-		botonEdit = new JButton("Editar");
-		botonEdit.setBounds(500, 350, 100, 30);
-		getContentPane().add(botonEdit);
-		
-		botonDelete = new JButton("Eliminar");
-		botonDelete.setBounds(500, 256, 100, 30);
-		getContentPane().add(botonDelete);
 		
 		//Tabla
 		
@@ -89,15 +77,52 @@ public class VistaPrincipal extends JFrame{
 		String[] nombreColumnas= {"Nombre", "Teléfono"};
 		tableModel = new DefaultTableModel(nombreColumnas,0);
 		
+		JPanel background = new JPanel();
+		background.setBackground(Color.WHITE);
+		background.setBounds(0, 0, 530, 322);
+		getContentPane().add(background);
+		background.setLayout(null);
+		
 		//2º crear la tabla
 		tablaContactos = new JTable(tableModel);
 		
 		//3º meter la tabla en el Scrollpane
 		
 		scrollPane = new JScrollPane(tablaContactos);
-		//ubicar el scroll pane
-		scrollPane.setBounds(151, 189, 300, 300);
-		getContentPane().add(scrollPane);
+		scrollPane.setBounds(201, 11, 300, 300);
+		background.add(scrollPane);
+		
+		
+		
+		//botones
+		botonAdd = new JButton("Añadir contacto");
+		botonAdd.setBounds(10, 135, 150, 30);
+		background.add(botonAdd);
+		
+		botonDelete = new JButton("Eliminar contacto");
+		botonDelete.setBounds(10, 254, 150, 30);
+		background.add(botonDelete);
+		
+		botonEdit = new JButton("Editar contacto");
+		botonEdit.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+				}
+		});
+		botonEdit.setBounds(10, 195, 150, 30);
+		background.add(botonEdit);
+			
+		panel = new JPanel();
+		panel.setBackground(SystemColor.textHighlight);
+		panel.setBounds(0, 0, 191, 322);
+		background.add(panel);
+		
+		//crear el ICONO
+		Image img = new ImageIcon("icono256.png").getImage();
+		icono = new JLabel(new ImageIcon(img.getScaledInstance(80,80, Image.SCALE_SMOOTH)));
+		icono.setBounds(90, 20, 80, 80);
+		getContentPane().add(icono);
+		
+		
 		
 	}
 	
@@ -132,5 +157,4 @@ public class VistaPrincipal extends JFrame{
 	public int obtenerFilaSeleccionada() {
 		return tablaContactos.getSelectedRow();
 	}
-
 }
