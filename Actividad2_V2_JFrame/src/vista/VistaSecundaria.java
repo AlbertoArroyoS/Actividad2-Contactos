@@ -1,19 +1,22 @@
 package vista;
 
-import java.awt.EventQueue;
+
+
 import java.awt.Toolkit;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
+
 import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
+
 
 import controlador.ControladorActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
-public class VistaEditar extends JDialog {
+public class VistaSecundaria extends JDialog {
     private JLabel nombre;
     private JLabel telefono;
     private JButton botonOk;
@@ -23,14 +26,14 @@ public class VistaEditar extends JDialog {
     private ControladorActionListener controlador;
     
     //le pasamos por parametro el controlador
-    public VistaEditar(ControladorActionListener controlador) {
+    public VistaSecundaria(ControladorActionListener controlador) {
         this.controlador = controlador;
 
         // Crear la ventana y establecerla
-        setTitle("Editar contacto");
+        setTitle("Añadir Contacto");
         setBounds(100, 100, 400, 180);
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        setLayout(null); // No se recomienda, pero se mantiene por compatibilidad
+        getContentPane().setLayout(null); // No se recomienda, pero se mantiene por compatibilidad
         setResizable(false);
         setIconImage(Toolkit.getDefaultToolkit().getImage("img/icono16.png"));
 
@@ -45,30 +48,63 @@ public class VistaEditar extends JDialog {
         // Crear los componentes y configurarlos
         nombre = new JLabel("Nombre");
         nombre.setBounds(60, 10, 80, 20);
-        add(nombre);
+        getContentPane().add(nombre);
         
         campoNombre = new JTextField();
+        //Que solo se puedan introducir letras en el campo
+        campoNombre.addKeyListener(new KeyAdapter() {
+        	@Override
+        	public void keyTyped(KeyEvent e) {
+        		int key = e.getKeyChar();
+        		//donde empiezan y terminan los numeros en asci
+        		boolean mayusculas = key >=65 && key <=90;
+        		boolean minusculas = key >=97 && key <= 122;
+        		boolean espacio = key == 32;
+        		//Si se introduce algo que no sean letras mayusculas o minusculas
+        		if (!(mayusculas || minusculas || espacio)) {
+        			e.consume();
+        		}
+        		
+        	}
+        });
         campoNombre.setBounds(140, 10, 80, 20);
-        add(campoNombre);
+        getContentPane().add(campoNombre);
         
         telefono = new JLabel("Teléfono");
         telefono.setBounds(60, 40, 80, 20);
-        add(telefono);
+        getContentPane().add(telefono);
         
         
         campoTelefono = new JTextField();
+        //Condicion para no introducir letras Design->SeleccionarCampo->Key->KeyTyped
+        campoTelefono.addKeyListener(new KeyAdapter() {
+        	@Override
+        	public void keyTyped(KeyEvent e) {
+        		int key = e.getKeyChar();
+        		//donde empiezan y terminan los numeros en asci
+        		boolean numeros = key >=48 && key <=57;
+        		//Si se introduce algo que no sea numero no se introduce
+        		if (!numeros) {
+        			e.consume();
+        		}
+        		//No se pueden introducir mas de 9 numeros en el campo
+        		if(campoTelefono.getText().length()>=9) {
+        			e.consume();
+        		}
+        	}
+        });
         campoTelefono.setBounds(140, 40, 80, 20);
-        add(campoTelefono);
+        getContentPane().add(campoTelefono);
 
         botonOk = new JButton("Ok");
         botonOk.addActionListener(controlador);
         botonOk.setBounds(100, 80, 80, 30);
-        add(botonOk);
+        getContentPane().add(botonOk);
 
         botonCancel = new JButton("Cancel");
         botonCancel.addActionListener(controlador);
         botonCancel.setBounds(200, 80, 80, 30);
-        add(botonCancel);
+        getContentPane().add(botonCancel);
     }
 
 /*
@@ -76,7 +112,7 @@ public class VistaEditar extends JDialog {
         botonOk.addActionListener(controlador);
         botonCancel.addActionListener(controlador);
     }
-*/	
+	*/
     
     //getters
 
@@ -95,21 +131,5 @@ public class VistaEditar extends JDialog {
 		return botonCancel;
 	}
 
-	public JLabel getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(JLabel nombre) {
-		this.nombre = nombre;
-	}
-
-	public JLabel getTelefono() {
-		return telefono;
-	}
-
-	public void setTelefono(JLabel telefono) {
-		this.telefono = telefono;
-	}
-	
-
 }
+
