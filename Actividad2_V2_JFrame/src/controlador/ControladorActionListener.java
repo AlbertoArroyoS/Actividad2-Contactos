@@ -59,10 +59,8 @@ public class ControladorActionListener implements ActionListener{
             int selectedRow = vistaPrincipal.obtenerFilaSeleccionada();
             
     		if (selectedRow >= 0) {
-    			if (vistaEditar == null) {
     				vistaEditar = new VistaEditar(this);
-    		    }
-			    vistaEditar.establecerListeners(this);
+
     			ponerDatosVistaEditar();
     		}else {
     			JOptionPane.showMessageDialog(null,"Tiene que seleccionar una fila", "Aviso", JOptionPane.INFORMATION_MESSAGE);	
@@ -74,7 +72,6 @@ public class ControladorActionListener implements ActionListener{
 		//else if (vistaEditar != null && e.getSource() == vistaEditar.getBotonOk()) {
 		if (vistaEditar != null && e.getSource() == vistaEditar.getBotonOk()) {
             //metodo editar
-			vistaEditar.establecerListeners(this);
 			editDatosTabla();
 			vistaEditar.dispose();
         }
@@ -83,7 +80,7 @@ public class ControladorActionListener implements ActionListener{
 		//else if (vistaEditar != null && e.getSource() == vistaEditar.getBotonCancel()) {
 		if (vistaEditar != null && e.getSource() == vistaEditar.getBotonCancel()) {
            // vistaAdd.setVisible(false);
-			vistaEditar.establecerListeners(this);
+		//	vistaEditar.establecerListeners(this);
 			vistaEditar.dispose();
 			//vistaAdd.setVisible(false);
         }

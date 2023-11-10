@@ -61,20 +61,22 @@ public class VistaEditar extends JDialog {
         add(campoTelefono);
 
         botonOk = new JButton("Ok");
+        botonOk.addActionListener(controlador);
         botonOk.setBounds(100, 80, 80, 30);
         add(botonOk);
 
         botonCancel = new JButton("Cancel");
+        botonCancel.addActionListener(controlador);
         botonCancel.setBounds(200, 80, 80, 30);
         add(botonCancel);
     }
 
-
+/*
 	public void establecerListeners(ControladorActionListener controlador) {
         botonOk.addActionListener(controlador);
         botonCancel.addActionListener(controlador);
     }
-	
+*/	
     
     //getters
 
