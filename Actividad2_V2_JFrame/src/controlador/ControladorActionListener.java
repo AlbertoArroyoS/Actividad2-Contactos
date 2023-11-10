@@ -42,12 +42,11 @@ public class ControladorActionListener implements ActionListener{
 			}
 			
 			//vistaAdd.setVisible(true);
-            //Llamo a los listeners de VistaAdd
+
            // vistaAdd.getCampoNombre().requestFocus();
         }
 		
 		//Al pulsar boton OK de añadir contacto, añade nombre y telefono a la tabla
-		//else if (vistaAdd != null && e.getSource() == vistaAdd.getBotonOk()) {
 		if (e.getSource() == vistaSecundaria.getBotonOk()) {
 			
 			if("Añadir contacto".equals(vistaSecundaria.getTitle())) {
@@ -66,7 +65,6 @@ public class ControladorActionListener implements ActionListener{
 		//else if (vistaAdd != null && e.getSource() == vistaAdd.getBotonCancel()) {
 		if (e.getSource() == vistaSecundaria.getBotonCancel()) {
             vistaSecundaria.dispose();
-
         }
 		
 		//Al pulsar el boton editar de la tabla principal
@@ -91,7 +89,7 @@ public class ControladorActionListener implements ActionListener{
         }
 		//Al pulsar el boton borrar de la tabla principal
 		if (e.getSource() == vistaPrincipal.getBotonDelete()) {
-		        vistaPrincipal.establecerListeners(this);
+		       // vistaPrincipal.establecerListeners(this);
 		        eliminarContacto();
 		}
 		
@@ -182,7 +180,6 @@ public class ControladorActionListener implements ActionListener{
 		vistaSecundaria.getCampoNombre().setText(null);
         vistaSecundaria.getCampoTelefono().setText(null);
 	}
-	 
-	 
+	 	 
  
 }
