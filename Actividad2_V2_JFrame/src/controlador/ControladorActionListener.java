@@ -64,8 +64,6 @@ public class ControladorActionListener implements ActionListener{
 		//Al pulsar cancelar de añadir contacto cierra y queda la principal
 		//else if (vistaAdd != null && e.getSource() == vistaAdd.getBotonCancel()) {
 		if (e.getSource() == vistaSecundaria.getBotonCancel()) {
-           // vistaAdd.setVisible(false);
-		    vistaSecundaria = new VistaSecundaria(this);
             vistaSecundaria.dispose();
 
         }
