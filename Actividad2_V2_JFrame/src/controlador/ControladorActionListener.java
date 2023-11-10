@@ -36,6 +36,7 @@ public class ControladorActionListener implements ActionListener{
 				vistaSecundaria.setTitle("Añadir contacto");
 				
 			}else {
+				resetCampos();
 				vistaSecundaria.setTitle("Añadir contacto");
 				vistaSecundaria.setVisible(true);
 			}
