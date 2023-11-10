@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.Toolkit;
 
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -12,7 +13,7 @@ import javax.swing.border.EmptyBorder;
 
 import controlador.ControladorActionListener;
 
-public class VistaEditar extends JFrame {
+public class VistaEditar extends JDialog {
     private JLabel nombre;
     private JLabel telefono;
     private JButton botonOk;

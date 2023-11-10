@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.Toolkit;
 
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -14,7 +15,7 @@ import controlador.ControladorActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class VistaAdd extends JFrame {
+public class VistaAdd extends JDialog {
     private JLabel nombre;
     private JLabel telefono;
     private JButton botonOk;
@@ -95,20 +96,22 @@ public class VistaAdd extends JFrame {
         getContentPane().add(campoTelefono);
 
         botonOk = new JButton("Ok");
+        botonOk.addActionListener(controlador);
         botonOk.setBounds(100, 80, 80, 30);
         getContentPane().add(botonOk);
 
         botonCancel = new JButton("Cancel");
+        botonCancel.addActionListener(controlador);
         botonCancel.setBounds(200, 80, 80, 30);
         getContentPane().add(botonCancel);
     }
 
-
+/*
 	public void establecerListeners(ControladorActionListener controlador) {
         botonOk.addActionListener(controlador);
         botonCancel.addActionListener(controlador);
     }
-	
+	*/
     
     //getters
 

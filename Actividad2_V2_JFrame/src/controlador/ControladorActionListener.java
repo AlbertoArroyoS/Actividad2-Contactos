@@ -30,10 +30,11 @@ public class ControladorActionListener implements ActionListener{
         
 		//Al pulsar boton añadir de la principal, abre secundaria y llama a los liseners de VistaAdd
 		if (e.getSource() == vistaPrincipal.getBotonAdd()) {
-            vistaAdd = new VistaAdd(this);
+				vistaAdd = new VistaAdd(this);
+
+			//vistaAdd.setVisible(true);
             //Llamo a los listeners de VistaAdd
-            vistaAdd.establecerListeners(this);
-            vistaAdd.getCampoNombre().requestFocus();
+           // vistaAdd.getCampoNombre().requestFocus();
         }
 		
 		//Al pulsar boton OK de añadir contacto, añade nombre y telefono a la tabla
@@ -41,6 +42,7 @@ public class ControladorActionListener implements ActionListener{
 		if (vistaAdd != null && e.getSource() == vistaAdd.getBotonOk()) {
             addDatosTabla();
           //  vistaAdd.setVisible(false);
+            vistaAdd.dispose();
         }
 		
 		//Al pulsar cancelar de añadir contacto cierra y queda la principal
@@ -57,7 +59,9 @@ public class ControladorActionListener implements ActionListener{
             int selectedRow = vistaPrincipal.obtenerFilaSeleccionada();
             
     		if (selectedRow >= 0) {
-			    vistaEditar = new VistaEditar(this);
+    			if (vistaEditar == null) {
+    				vistaEditar = new VistaEditar(this);
+    		    }
 			    vistaEditar.establecerListeners(this);
     			ponerDatosVistaEditar();
     		}else {
@@ -72,7 +76,7 @@ public class ControladorActionListener implements ActionListener{
             //metodo editar
 			vistaEditar.establecerListeners(this);
 			editDatosTabla();
-			vistaEditar.setVisible(false);
+			vistaEditar.dispose();
         }
 		
 		//Al pulsar cancelar de la vista editar, añadir contacto cierra y queda la principal
@@ -94,20 +98,27 @@ public class ControladorActionListener implements ActionListener{
 
 	//metodo para añadir los datos de los campos nombre y telefono a la tabla
 	public void addDatosTabla() {
-    	String nombre = vistaAdd.getCampoNombre().getText();
-    	String telefono = vistaAdd.getCampoTelefono().getText();
-    	if(nombre.isEmpty()){
-    		JOptionPane.showMessageDialog(null,"Nombre esta vacio", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-    	}else if(telefono.isEmpty()){
-    		JOptionPane.showMessageDialog(null,"Telefono esta vacio", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-    	}else {
-    		DefaultTableModel tableModel = vistaPrincipal.getTableModel();
-    		tableModel = vistaPrincipal.getTableModel();
-            tableModel.addRow(new String[]{nombre, telefono});
-            vistaAdd.setVisible(false);
-    	}
-    	
-    }
+	    String nombre = vistaAdd.getCampoNombre().getText();
+	    String telefono = vistaAdd.getCampoTelefono().getText();
+	    if(nombre.isEmpty()){
+	        JOptionPane.showMessageDialog(null,"Nombre está vacío", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+	        if (vistaAdd.isVisible()) {
+	            vistaAdd.dispose(); // Cierra la ventana si está visible
+	        }
+	        vistaAdd = null; // Reinicializa la instancia de VistaAdd
+	    } else if(telefono.isEmpty()){
+	        JOptionPane.showMessageDialog(null,"Teléfono está vacío", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+	        if (vistaAdd.isVisible()) {
+	            vistaAdd.dispose(); // Cierra la ventana si está visible
+	        }
+	        vistaAdd = null; // Reinicializa la instancia de VistaAdd
+	    } else {
+	        DefaultTableModel tableModel = vistaPrincipal.getTableModel();
+	        tableModel.addRow(new String[]{nombre, telefono});
+	        vistaAdd.getCampoNombre().setText(null);
+	        vistaAdd.getCampoTelefono().setText(null);
+	    }
+	}
 	
 	public void ponerDatosVistaEditar() {
 		int selectedRow = vistaPrincipal.obtenerFilaSeleccionada();
