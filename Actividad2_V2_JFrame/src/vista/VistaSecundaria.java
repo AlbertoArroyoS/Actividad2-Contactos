@@ -1,7 +1,5 @@
 package vista;
 
-
-
 import java.awt.Toolkit;
 
 import javax.swing.JButton;
@@ -107,13 +105,6 @@ public class VistaSecundaria extends JDialog {
         getContentPane().add(botonCancel);
     }
 
-/*
-	public void establecerListeners(ControladorActionListener controlador) {
-        botonOk.addActionListener(controlador);
-        botonCancel.addActionListener(controlador);
-    }
-	*/
-    
     //getters
 
 	public JTextField getCampoNombre() {

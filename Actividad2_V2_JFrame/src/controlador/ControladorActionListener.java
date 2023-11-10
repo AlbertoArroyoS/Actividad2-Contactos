@@ -89,13 +89,11 @@ public class ControladorActionListener implements ActionListener{
         }
 		//Al pulsar el boton borrar de la tabla principal
 		if (e.getSource() == vistaPrincipal.getBotonDelete()) {
-		       // vistaPrincipal.establecerListeners(this);
 		        eliminarContacto();
 		}
 		
     }
 			
-
 	//metodo para añadir los datos de los campos nombre y telefono a la tabla
 	public void addDatosTabla() {
 	    String nombre = vistaSecundaria.getCampoNombre().getText();
@@ -181,5 +179,4 @@ public class ControladorActionListener implements ActionListener{
         vistaSecundaria.getCampoTelefono().setText(null);
 	}
 	 	 
- 
 }
