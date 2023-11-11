@@ -1,5 +1,6 @@
 package controlador;
 
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 
 import java.awt.event.ActionListener;
@@ -42,10 +43,12 @@ public class ControladorActionListener implements ActionListener{
 			if(vistaSecundaria==null) {
 				vistaSecundaria = new VistaSecundaria(this);
 				vistaSecundaria.setTitle("Añadir contacto");
+				vistaSecundaria.setIconImage(Toolkit.getDefaultToolkit().getImage("img/añadir32.png"));
 				
 			}else {
 				resetCampos();
 				vistaSecundaria.setTitle("Añadir contacto");
+				vistaSecundaria.setIconImage(Toolkit.getDefaultToolkit().getImage("img/añadir32.png"));
 				vistaSecundaria.setVisible(true);
 			}
 			
@@ -91,6 +94,7 @@ public class ControladorActionListener implements ActionListener{
     				vistaSecundaria.setVisible(true);
     			}
     			vistaSecundaria.setTitle("Editar contacto");
+    			vistaSecundaria.setIconImage(Toolkit.getDefaultToolkit().getImage("img/editar32.png"));
     			ponerDatosTabla();
     				
     		}else {

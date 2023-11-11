@@ -62,7 +62,7 @@ public class VistaPrincipal extends JFrame{
 		//Nombre ventana
 		setTitle("Mis contactos");
 		//icono de la ventana
-		setIconImage(Toolkit.getDefaultToolkit().getImage("img/icono16.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("img/contactos64-principal.png"));
 		//funcion para inicializar las variables
 		initVariables();
 		//hacer visible la ventana (tiene que ser la ultima opcion del constructor)
@@ -125,26 +125,26 @@ public class VistaPrincipal extends JFrame{
 		
 
 		
-		/*
+		
 		//crear el componente
 		icono = new JLabel();
-		icono.setIcon(new ImageIcon("img/contactos.png"));
+		icono.setIcon(new ImageIcon("img/agenda6-80.png"));
 		//colocarlo en la ventana
-		icono.setBounds(20, 20, 128, 128);
+		
+		//icono.setBounds(55, 9, 90, 90);
+		icono.setLocation(55, 9);
+		icono.setSize(80, 80);
 		//añadir el icono al panel
-		panel.add(icono);
-	
-	*/
-		//crear el ICONO **********USAR ESTE QUE REDIMENSIONA
-		
-		Image img = new ImageIcon("img/contactos5-64.png").getImage();
-		icono = new JLabel(new ImageIcon(img.getScaledInstance(64, 64, Image.SCALE_SMOOTH)));
-		icono.setText("");
-		icono.setForeground(Color.GRAY);
-		icono.setBackground(new Color(255, 255, 255));
-		icono.setBounds(55, 9, 64, 64);
 		background.add(icono);
-		
+	
+	
+		//crear el ICONO **********ESTE QUE REDIMENSIONA IMAGEN
+	/*	
+		Image img = new ImageIcon("img/contactos5-128.png").getImage();
+		icono = new JLabel(new ImageIcon(img.getScaledInstance(75, 75, Image.SCALE_SMOOTH)));
+		icono.setBounds(55, 9, 75, 75);
+		background.add(icono);
+	*/	
 		
 		//Cambiar la fuente de la ventana
 		
@@ -158,7 +158,7 @@ public class VistaPrincipal extends JFrame{
 			//meter la fuente
 			nombreApp.setFont(font.deriveFont(20f));
 			//colocar la etiqueta
-			nombreApp.setBounds(20, 10, 271, 22);
+			nombreApp.setBounds(209, 10, 271, 22);
 			//color de la letra en blanco
 			nombreApp.setForeground(Color.WHITE);
 			background.add(nombreApp);
