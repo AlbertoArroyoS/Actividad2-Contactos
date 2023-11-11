@@ -11,6 +11,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -40,6 +42,7 @@ public class ControladorActionListener implements ActionListener{
         
 		//Al pulsar boton añadir de la principal, abre secundaria y llama a los liseners de VistaAdd
 		if (e.getSource() == vistaPrincipal.getBotonAdd()) {
+			reproducirSonido("audio/mouse-click.wav");
 			if(vistaSecundaria==null) {
 				vistaSecundaria = new VistaSecundaria(this);
 				vistaSecundaria.setTitle("Añadir contacto");
@@ -306,6 +309,22 @@ public class ControladorActionListener implements ActionListener{
                 e.printStackTrace();
                 JOptionPane.showMessageDialog(null, "Error al cargar datos desde el archivo", "Error", JOptionPane.ERROR_MESSAGE);
             }
+        }
+    }
+    
+    //reproducir sonidos con la clase clip
+    private void reproducirSonido(String ruta) {
+        try {
+            File file = new File(ruta);
+            if (file.exists()) {
+                Clip clip = AudioSystem.getClip();
+                clip.open(AudioSystem.getAudioInputStream(file));
+                clip.start();
+            } else {
+                System.out.println("El archivo de sonido no existe: " + ruta);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
 
