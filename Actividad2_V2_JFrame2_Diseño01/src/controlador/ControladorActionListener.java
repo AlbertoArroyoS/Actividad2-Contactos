@@ -64,8 +64,7 @@ public class ControladorActionListener implements ActionListener{
 	    	  //  vistaSecundaria.dispose();
 	        } else if ("Editar contacto".equals(vistaSecundaria.getTitle())) {
 	            editDatosTabla();
-	            resetCampos();
-	            vistaSecundaria.dispose();
+	            
 	        }
 	    }
 		
@@ -132,8 +131,15 @@ public class ControladorActionListener implements ActionListener{
 		               "Aceptar");
 		       
 		 } else if (telefono.isEmpty()) {
-		        JOptionPane.showMessageDialog(null, "Teléfono está vacío", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-		        // No hagas nada más, simplemente deja que la ventana secundaria permanezca abierta.
+		     //   JOptionPane.showMessageDialog(null, "Teléfono está vacío", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+		        JOptionPane.showOptionDialog(null,
+			               "Teléfono está vacío",
+			               "Aviso",
+			               JOptionPane.DEFAULT_OPTION,
+			               JOptionPane.WARNING_MESSAGE,
+			               null,
+			               new Object[]{"Aceptar"},  // Añadimos un botón "Aceptar"
+			               "Aceptar");
 		 }else {
 		    	 DefaultTableModel tableModel = vistaPrincipal.getTableModel();
 		    	 tableModel.addRow(new String[]{nombre, telefono});
@@ -180,6 +186,8 @@ public class ControladorActionListener implements ActionListener{
 	    		tableModel = vistaPrincipal.getTableModel();
 	    		tableModel.setValueAt(nombreEditado, filaSeleccionada, 0);
 	    	    tableModel.setValueAt(telefonoEditado, filaSeleccionada, 1);
+	    	    resetCampos();
+	            vistaSecundaria.dispose();
 	    		
 	    	}  
 	        
