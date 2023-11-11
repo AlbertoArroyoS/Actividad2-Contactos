@@ -124,7 +124,7 @@ public class VistaPrincipal extends JFrame{
 		background.add(botonCargar);
 		
 
-		
+		/*
 		
 		//crear el componente
 		icono = new JLabel();
@@ -136,15 +136,15 @@ public class VistaPrincipal extends JFrame{
 		icono.setSize(80, 80);
 		//añadir el icono al panel
 		background.add(icono);
-	
+	*/
 	
 		//crear el ICONO **********ESTE QUE REDIMENSIONA IMAGEN
-	/*	
-		Image img = new ImageIcon("img/contactos5-128.png").getImage();
-		icono = new JLabel(new ImageIcon(img.getScaledInstance(75, 75, Image.SCALE_SMOOTH)));
-		icono.setBounds(55, 9, 75, 75);
+		
+		Image img = new ImageIcon("img/agenda6-512.png").getImage();
+		icono = new JLabel(new ImageIcon(img.getScaledInstance(80, 80, Image.SCALE_SMOOTH)));
+		icono.setBounds(55, 9, 80, 80);
 		background.add(icono);
-	*/	
+		
 		
 		//Cambiar la fuente de la ventana
 		
