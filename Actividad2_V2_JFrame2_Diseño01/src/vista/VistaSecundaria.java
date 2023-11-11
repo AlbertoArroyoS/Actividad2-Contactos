@@ -1,5 +1,6 @@
 package vista;
 
+import java.awt.Color;
 import java.awt.Toolkit;
 
 
@@ -23,6 +24,7 @@ public class VistaSecundaria extends JDialog {
     private JTextField campoNombre;
     private JTextField campoTelefono;
     private ControladorActionListener controlador;
+    private GradientPanel background;  // Nuevo componente para el fondo
     
     //le pasamos por parametro el controlador
     public VistaSecundaria(ControladorActionListener controlador) {
@@ -35,7 +37,10 @@ public class VistaSecundaria extends JDialog {
         getContentPane().setLayout(null); // No se recomienda, pero se mantiene por compatibilidad
         setResizable(false);
         setIconImage(Toolkit.getDefaultToolkit().getImage("img/icono16.png"));
-
+        
+     // Crear el componente background como un panel de degradado
+        background = new GradientPanel();
+        setContentPane(background);
         // Llamar a initVariables para inicializar los componentes
         initVariables();
 
@@ -44,10 +49,13 @@ public class VistaSecundaria extends JDialog {
     }
 
     private void initVariables() {
+        background.setLayout(null);
         // Crear los componentes y configurarlos
         nombre = new JLabel("Nombre");
-        nombre.setBounds(60, 10, 80, 20);
-        getContentPane().add(nombre);
+        nombre.setBounds(60, 20, 80, 20);
+        //cambio el color del nombre
+        nombre.setForeground(Color.WHITE);
+        background.add(nombre);
         
         campoNombre = new JTextField();
         //Que solo se puedan introducir letras en el campo
@@ -66,12 +74,13 @@ public class VistaSecundaria extends JDialog {
         		
         	}
         });
-        campoNombre.setBounds(140, 10, 80, 20);
-        getContentPane().add(campoNombre);
+        campoNombre.setBounds(140, 20, 150, 20);
+        background.add(campoNombre);
         
         telefono = new JLabel("Teléfono");
-        telefono.setBounds(60, 40, 80, 20);
-        getContentPane().add(telefono);
+        telefono.setBounds(60, 60, 80, 20);
+        telefono.setForeground(Color.WHITE);
+        background.add(telefono);
         
         
         campoTelefono = new JTextField();
@@ -92,18 +101,20 @@ public class VistaSecundaria extends JDialog {
         		}
         	}
         });
-        campoTelefono.setBounds(140, 40, 80, 20);
-        getContentPane().add(campoTelefono);
+        campoTelefono.setBounds(140, 60, 150, 20);
+        background.add(campoTelefono);
 
         botonOk = new JButton("Ok");
         botonOk.addActionListener(controlador);
-        botonOk.setBounds(100, 80, 80, 30);
-        getContentPane().add(botonOk);
+        botonOk.setBounds(180, 105, 80, 30);
+        botonOk.setBackground(Color.WHITE);
+        background.add(botonOk);
 
         botonCancel = new JButton("Cancel");
         botonCancel.addActionListener(controlador);
-        botonCancel.setBounds(200, 80, 80, 30);
-        getContentPane().add(botonCancel);
+        botonCancel.setBounds(270, 105, 80, 30);
+        botonCancel.setBackground(Color.WHITE);
+        background.add(botonCancel);
     }
 
     //getters
