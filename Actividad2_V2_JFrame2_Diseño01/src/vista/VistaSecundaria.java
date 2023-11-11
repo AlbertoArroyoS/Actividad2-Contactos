@@ -85,6 +85,7 @@ public class VistaSecundaria extends JDialog {
         telefono = new JLabel("Teléfono");
         telefono.setBounds(60, 60, 80, 20);
         telefono.setForeground(Color.WHITE);
+        telefono.setFont(new Font("Dialog",Font.BOLD,14));
         background.add(telefono);
         
         

@@ -100,27 +100,32 @@ public class VistaPrincipal extends JFrame{
 		botonAdd = new JButton("Añadir contacto");
 		botonAdd.setBounds(20, 100, 150, 30);
 		botonAdd.setBackground(Color.WHITE);
+		botonAdd.setFont(new Font("Dialog",Font.BOLD,13));
 		background.add(botonAdd);
 		
 		botonDelete = new JButton("Eliminar contacto");
 		botonDelete.setBounds(20, 180, 150, 30);
 		botonDelete.setBackground(Color.WHITE);
+		botonDelete.setFont(new Font("Dialog",Font.BOLD,13));
 		background.add(botonDelete);
 		
 		botonEdit = new JButton("Editar contacto");
 		botonEdit.setBounds(20, 140, 150, 30);
 		botonEdit.setBackground(Color.WHITE);
+		botonEdit.setFont(new Font("Dialog",Font.BOLD,13));
 		background.add(botonEdit);
 		
 		//botonos de guardar y cargar
 		botonGuardar = new JButton("Guardar");
 		botonGuardar.setBounds(20, 260, 150, 30);
 		botonGuardar.setBackground(Color.WHITE);
+		botonGuardar.setFont(new Font("Dialog",Font.BOLD,14));
 		background.add(botonGuardar);
 		
 		botonCargar = new JButton("Cargar");
 		botonCargar.setBounds(20, 300, 150, 30);
 		botonCargar.setBackground(Color.WHITE);
+		botonCargar.setFont(new Font("Dialog",Font.BOLD,14));
 		background.add(botonCargar);
 		
 
