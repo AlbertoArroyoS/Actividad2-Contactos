@@ -101,18 +101,17 @@ public class VistaPrincipal extends JFrame{
 		//botones
 		botonAdd = new JButton("Añadir contacto");
 		botonAdd.setBounds(10, 135, 150, 30);
+		botonAdd.setBackground(Color.WHITE);
 		background.add(botonAdd);
 		
 		botonDelete = new JButton("Eliminar contacto");
 		botonDelete.setBounds(10, 254, 150, 30);
+		botonDelete.setBackground(Color.WHITE);
 		background.add(botonDelete);
 		
 		botonEdit = new JButton("Editar contacto");
-		botonEdit.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent e) {
-				}
-		});
 		botonEdit.setBounds(10, 195, 150, 30);
+		botonEdit.setBackground(Color.WHITE);
 		background.add(botonEdit);
 			
 		panel = new JPanel();
