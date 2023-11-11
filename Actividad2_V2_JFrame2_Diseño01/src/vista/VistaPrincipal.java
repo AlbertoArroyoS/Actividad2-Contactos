@@ -37,6 +37,7 @@ public class VistaPrincipal extends JFrame{
 	private JButton botonDelete;
 	private JButton botonGuardar;
 	private JButton botonCargar;
+	private JLabel icono, nombreApp;
 	
 	//DefaultTableModel(tabla |x|y|)  ->  JTable  -> ScrollPane
 	
@@ -136,13 +137,31 @@ public class VistaPrincipal extends JFrame{
 	*/
 		//crear el ICONO **********USAR ESTE QUE REDIMENSIONA
 		
-		Image img = new ImageIcon("img/contactos.png").getImage();
+		Image img = new ImageIcon("img/contactos5-64.png").getImage();
+		icono = new JLabel(new ImageIcon(img.getScaledInstance(64, 64, Image.SCALE_SMOOTH)));
+		icono.setText("");
+		icono.setForeground(Color.GRAY);
+		icono.setBackground(new Color(255, 255, 255));
+		icono.setBounds(55, 9, 64, 64);
+		background.add(icono);
 		
 		
 		//Cambiar la fuente de la ventana
 		
 		try {
 			Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("TERMINAT.ttf"));
+	
+			//crear la label con esa fuente
+			nombreApp = new JLabel("MIS CONTACTOS");		
+			//alineacion centrada
+			nombreApp.setHorizontalAlignment(SwingConstants.CENTER);
+			//meter la fuente
+			nombreApp.setFont(font.deriveFont(20f));
+			//colocar la etiqueta
+			nombreApp.setBounds(20, 10, 271, 22);
+			//color de la letra en blanco
+			nombreApp.setForeground(Color.WHITE);
+			background.add(nombreApp);
 			
 		} catch (FontFormatException e1) {
 			// TODO Auto-generated catch block
@@ -151,7 +170,7 @@ public class VistaPrincipal extends JFrame{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
+
 		
 	}
 	//
