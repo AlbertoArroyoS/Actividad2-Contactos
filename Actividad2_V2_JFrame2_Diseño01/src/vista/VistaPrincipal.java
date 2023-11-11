@@ -37,6 +37,8 @@ public class VistaPrincipal extends JFrame{
 	private JButton botonAdd;
 	private JButton botonEdit;
 	private JButton botonDelete;
+	private JButton botonGuardar;
+	private JButton botonCargar;
 	
 	//DefaultTableModel(tabla |x|y|)  ->  JTable  -> ScrollPane
 	
@@ -47,8 +49,7 @@ public class VistaPrincipal extends JFrame{
 	//contenedor con scroll
 	private JScrollPane scrollPane;
 	private JPanel panel;
-	private JLabel lblNewLabel;
-	private JLabel lblNewLabel_1;
+
 	
 	//Constructor para inicializar las variables
 	public VistaPrincipal() {
@@ -113,6 +114,17 @@ public class VistaPrincipal extends JFrame{
 		botonEdit.setBounds(10, 195, 150, 30);
 		botonEdit.setBackground(Color.WHITE);
 		background.add(botonEdit);
+		
+		//botonos de guardar y cargar
+		botonGuardar = new JButton("Guardar");
+		botonGuardar.setBounds(10, 260, 150, 30);
+		botonGuardar.setBackground(Color.WHITE);
+		background.add(botonGuardar);
+		
+		botonCargar = new JButton("Cargar");
+		botonCargar.setBounds(10, 290, 150, 30);
+		botonCargar.setBackground(Color.WHITE);
+		background.add(botonCargar);
 			
 		panel = new JPanel();
 		panel.setBackground(new Color(0, 0, 0));

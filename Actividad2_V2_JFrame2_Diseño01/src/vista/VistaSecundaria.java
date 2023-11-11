@@ -2,6 +2,7 @@ package vista;
 
 import java.awt.Toolkit;
 
+
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
