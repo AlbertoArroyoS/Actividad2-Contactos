@@ -21,6 +21,9 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontFormatException;
+import java.awt.GradientPaint;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -31,6 +34,11 @@ import java.awt.BorderLayout;
 import java.awt.CardLayout;
 
 public class VistaPrincipal extends JFrame{
+	
+	//Atributos de la clase, componentes que vamod a necesitar
+	
+	//Icono
+	private JLabel icono, nombreApp;
 	//Botones 
 	private JButton botonAdd;
 	private JButton botonEdit;
@@ -46,6 +54,7 @@ public class VistaPrincipal extends JFrame{
 	private DefaultTableModel tableModel;
 	//contenedor con scroll
 	private JScrollPane scrollPane;
+	private JPanel panel;
 
 	
 	//Constructor para inicializar las variables
@@ -79,10 +88,11 @@ public class VistaPrincipal extends JFrame{
 		String[] nombreColumnas= {"Nombre", "Teléfono"};
 		tableModel = new DefaultTableModel(nombreColumnas,0);
 		
-		GradientPanel background = new GradientPanel();
-	    background.setBounds(0, 0, 506, 353);
-	    getContentPane().add(background);
-	    background.setLayout(null);
+		// Crear el componente background como un panel de degradado
+        GradientPanel background = new GradientPanel();
+        background.setBounds(0, 0, 506, 353);
+        getContentPane().add(background);
+		background.setLayout(null);
 		
 		//2º crear la tabla
 		tablaContactos = new JTable(tableModel);
@@ -121,6 +131,12 @@ public class VistaPrincipal extends JFrame{
 		botonCargar.setBounds(20, 300, 150, 30);
 		botonCargar.setBackground(Color.WHITE);
 		background.add(botonCargar);
+			
+		panel = new JPanel();
+		panel.setBackground(new Color(0, 0, 0));
+		panel.setBounds(0, 0, 191, 353);
+		background.add(panel);
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 
 		
@@ -137,12 +153,35 @@ public class VistaPrincipal extends JFrame{
 		//crear el ICONO **********USAR ESTE QUE REDIMENSIONA
 		
 		Image img = new ImageIcon("img/contactos.png").getImage();
+		icono = new JLabel(new ImageIcon(img.getScaledInstance(80, 80, Image.SCALE_SMOOTH)));
+		icono.setText("");
+		icono.setForeground(Color.GRAY);
+		icono.setBackground(new Color(255, 255, 255));
+		icono.setBounds(55, 9, 80, 80);
+		panel.add(icono);
 		
 		
 		//Cambiar la fuente de la ventana
 		
 		try {
 			Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("TERMINAT.ttf"));
+			
+			JPanel panel_1 = new JPanel();
+			panel_1.setBackground(new Color(0, 0, 0));
+			panel_1.setBounds(191, 0, 325, 43);
+			background.add(panel_1);
+			panel_1.setLayout(null);
+			//crear la label con esa fuente
+			nombreApp = new JLabel("MIS CONTACTOS");
+			panel_1.add(nombreApp);
+			//alineacion centrada
+			nombreApp.setHorizontalAlignment(SwingConstants.CENTER);
+			//meter la fuente
+			nombreApp.setFont(font.deriveFont(20f));
+			//colocar la etiqueta
+			nombreApp.setBounds(20, 10, 271, 22);
+			//color de la letra en blanco
+			nombreApp.setForeground(Color.WHITE);
 			
 		} catch (FontFormatException e1) {
 			// TODO Auto-generated catch block
@@ -154,8 +193,27 @@ public class VistaPrincipal extends JFrame{
 		
 		
 	}
-	//
-	
+	//colores gradientes
+	private class GradientPanel extends JPanel {
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            Graphics2D g2d = (Graphics2D) g;
+
+            // Define los colores del degradado
+            Color color1 = new Color(0, 0, 0); // Color inicial
+            Color color2 = new Color(128, 128, 128); // Color final
+
+            // Crea un degradado vertical desde la parte superior hasta la inferior
+            GradientPaint gradient = new GradientPaint(0, 0, color1, 0, getHeight(), color2);
+
+            // Establece el degradado en el contexto gráfico
+            g2d.setPaint(gradient);
+
+            // Rellena el fondo con el degradado
+            g2d.fillRect(0, 0, getWidth(), getHeight());
+        }
+    }
 	
 	//creamos un metodo en la vista para tener acceso al controlador
 	//hay que hacer un metodo por cada evento que necesite ser escuchado
