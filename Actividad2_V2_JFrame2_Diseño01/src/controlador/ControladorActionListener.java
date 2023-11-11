@@ -62,8 +62,8 @@ public class ControladorActionListener implements ActionListener{
 		
 		//Al pulsar boton OK de añadir contacto, añade nombre y telefono a la tabla
 		if (vistaSecundaria != null && e.getSource() == vistaSecundaria.getBotonOk()) {
+			reproducirSonido("audio/mouse-click.wav");
 			
-
 	        if ("Añadir contacto".equals(vistaSecundaria.getTitle())) {
 	    	    addDatosTabla();
 	        	            
@@ -75,18 +75,19 @@ public class ControladorActionListener implements ActionListener{
 	    }
 		
 		//Al pulsar cancelar de añadir contacto cierra y queda la principal
-		//else if (vistaAdd != null && e.getSource() == vistaAdd.getBotonCancel()) {
+		
 		if (vistaSecundaria != null && e.getSource() == vistaSecundaria.getBotonCancel()) {
 			if(vistaSecundaria==null) {
 				vistaSecundaria = new VistaSecundaria(this);
 				
 			}
+			reproducirSonido("audio/mouse-click.wav");
             vistaSecundaria.dispose();
         }
 		
 		//Al pulsar el boton editar de la tabla principal
 		if (e.getSource() == vistaPrincipal.getBotonEdit()) {
-			
+			reproducirSonido("audio/mouse-click.wav");
             //vistaEditar.getCampoNombre().requestFocus();
             int selectedRow = vistaPrincipal.obtenerFilaSeleccionada();
             
@@ -101,22 +102,26 @@ public class ControladorActionListener implements ActionListener{
     			ponerDatosTabla();
     				
     		}else {
+    			reproducirSonido("audio/windows-error.wav");
     			JOptionPane.showMessageDialog(null,"Tiene que seleccionar una fila", "Aviso", JOptionPane.INFORMATION_MESSAGE);	
     		}
                 
         }
 		//Al pulsar el boton borrar de la tabla principal
 		if (e.getSource() == vistaPrincipal.getBotonDelete()) {
-		        eliminarContacto();
+			reproducirSonido("audio/mouse-click.wav");
+		    eliminarContacto();
 		}
 		
 		// Al pulsar un botón para guardar la tabla en un archivo
 	    if (e.getSource() == vistaPrincipal.getBotonGuardar()) {
+	    	reproducirSonido("audio/mouse-click.wav");
 	        guardarTablaEnArchivo();
 	    }
 	    
 	    // Al pulsar un botón para cargar datos desde un archivo
 	    if (e.getSource() == vistaPrincipal.getBotonCargar()) {
+	    	reproducirSonido("audio/mouse-click.wav");
 	        cargarDatosDesdeArchivo();
 	    }
 		
@@ -128,6 +133,7 @@ public class ControladorActionListener implements ActionListener{
 		String nombre = vistaSecundaria.getCampoNombre().getText();
 	    String telefono = vistaSecundaria.getCampoTelefono().getText();
 	    if (nombre.isEmpty()) {
+	    	reproducirSonido("audio/windows-error.wav");
 		       JOptionPane.showOptionDialog(null,
 		               "Nombre está vacío",
 		               "Aviso",
@@ -137,7 +143,9 @@ public class ControladorActionListener implements ActionListener{
 		               new Object[]{"Aceptar"},  // Añadimos un botón "Aceptar"
 		               "Aceptar");
 		       
+		       
 		 } else if (telefono.isEmpty()) {
+			 reproducirSonido("audio/windows-error.wav");
 		     //   JOptionPane.showMessageDialog(null, "Teléfono está vacío", "Aviso", JOptionPane.INFORMATION_MESSAGE);
 		        JOptionPane.showOptionDialog(null,
 			               "Teléfono está vacío",
@@ -148,6 +156,7 @@ public class ControladorActionListener implements ActionListener{
 			               new Object[]{"Aceptar"},  // Añadimos un botón "Aceptar"
 			               "Aceptar");
 		 }else if(telefono.length()<9){
+			 reproducirSonido("audio/windows-error.wav");
 			 JOptionPane.showOptionDialog(null,
 		               "El teléfono debe tener 9 digitos",
 		               "Aviso",
@@ -195,10 +204,13 @@ public class ControladorActionListener implements ActionListener{
 	        String nombreEditado = vistaSecundaria.getCampoNombre().getText();
 	    	String telefonoEditado = vistaSecundaria.getCampoTelefono().getText();
 	    	if(nombreEditado.isEmpty()){
+	    		reproducirSonido("audio/windows-error.wav");
 	    		JOptionPane.showMessageDialog(null,"Nombre esta vacio", "Aviso", JOptionPane.INFORMATION_MESSAGE);
 	    	}else if(telefonoEditado.isEmpty()){
+	    		reproducirSonido("audio/windows-error.wav");
 	    		JOptionPane.showMessageDialog(null,"Telefono esta vacio", "Aviso", JOptionPane.INFORMATION_MESSAGE);
 	    	}else if(telefonoEditado.length()<9){
+	    		reproducirSonido("audio/windows-error.wav");
 				 JOptionPane.showOptionDialog(null,
 			               "El teléfono debe tener 9 digitos",
 			               "Aviso",
@@ -219,6 +231,7 @@ public class ControladorActionListener implements ActionListener{
 	    	}  
 	        
         } else {
+        	reproducirSonido("audio/windows-error.wav");
             // Mostrar un mensaje al usuario indicando que no hay fila seleccionada.
             JOptionPane.showMessageDialog(vistaPrincipal, "Selecciona un contacto para editar.", "Sin selección", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -233,6 +246,7 @@ public class ControladorActionListener implements ActionListener{
 		}
 		else {
             // Mostrar un mensaje al usuario indicando que no hay fila seleccionada.
+			reproducirSonido("audio/windows-error.wav");
             JOptionPane.showMessageDialog(vistaPrincipal, "Selecciona un contacto para editar.", "Sin selección", JOptionPane.INFORMATION_MESSAGE);
         }
 		
@@ -273,6 +287,7 @@ public class ControladorActionListener implements ActionListener{
                 JOptionPane.showMessageDialog(null, "Tabla guardada correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             } catch (IOException e) {
                 e.printStackTrace();
+                reproducirSonido("audio/windows-error.wav");
                 JOptionPane.showMessageDialog(null, "Error al guardar la tabla", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
@@ -307,6 +322,7 @@ public class ControladorActionListener implements ActionListener{
                 JOptionPane.showMessageDialog(null, "Datos cargados correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             } catch (IOException e) {
                 e.printStackTrace();
+                reproducirSonido("audio/windows-error.wav");
                 JOptionPane.showMessageDialog(null, "Error al cargar datos desde el archivo", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
