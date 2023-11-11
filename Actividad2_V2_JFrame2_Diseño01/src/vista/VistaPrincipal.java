@@ -26,6 +26,9 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
+import java.awt.FlowLayout;
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
 
 public class VistaPrincipal extends JFrame{
 	
@@ -130,6 +133,7 @@ public class VistaPrincipal extends JFrame{
 		panel.setBackground(new Color(0, 0, 0));
 		panel.setBounds(0, 0, 191, 353);
 		background.add(panel);
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 
 		
@@ -147,7 +151,10 @@ public class VistaPrincipal extends JFrame{
 		
 		Image img = new ImageIcon("img/contactos.png").getImage();
 		icono = new JLabel(new ImageIcon(img.getScaledInstance(80, 80, Image.SCALE_SMOOTH)));
-		icono.setBounds(50, 50, 80, 80);
+		icono.setText("");
+		icono.setForeground(Color.GRAY);
+		icono.setBackground(new Color(255, 255, 255));
+		icono.setBounds(55, 9, 80, 80);
 		panel.add(icono);
 		
 		
@@ -160,6 +167,7 @@ public class VistaPrincipal extends JFrame{
 			panel_1.setBackground(new Color(0, 0, 0));
 			panel_1.setBounds(191, 0, 325, 43);
 			background.add(panel_1);
+			panel_1.setLayout(null);
 			//crear la label con esa fuente
 			nombreApp = new JLabel("MIS CONTACTOS");
 			panel_1.add(nombreApp);
@@ -168,7 +176,7 @@ public class VistaPrincipal extends JFrame{
 			//meter la fuente
 			nombreApp.setFont(font.deriveFont(20f));
 			//colocar la etiqueta
-			nombreApp.setBounds(0, 10, 20, 10);
+			nombreApp.setBounds(20, 10, 271, 22);
 			//color de la letra en blanco
 			nombreApp.setForeground(Color.WHITE);
 			
