@@ -194,13 +194,19 @@ public class VistaPrincipal extends JFrame{
 	//creamos un metodo en la vista para tener acceso al controlador
 	//hay que hacer un metodo por cada evento que necesite ser escuchado
 	
+
 	public void establecerListeners(ControladorActionListener controlador) {
 		
 		botonAdd.addActionListener(controlador);
 		botonEdit.addActionListener(controlador);
 		botonDelete.addActionListener(controlador);
+		botonGuardar.addActionListener(controlador);
+		botonCargar.addActionListener(controlador);
 	}
-	
+	//Obtener la fila seleccionada
+		public int obtenerFilaSeleccionada() {
+			return tablaContactos.getSelectedRow();
+	}
 	
 	
 	
@@ -218,8 +224,11 @@ public class VistaPrincipal extends JFrame{
 	public JButton getBotonDelete() {
 		return botonDelete;
 	}
-	//Obtener la fila seleccionada
-	public int obtenerFilaSeleccionada() {
-		return tablaContactos.getSelectedRow();
+	public JButton getBotonGuardar() {
+		return botonGuardar;
 	}
+	public JButton getBotonCargar() {
+		return botonCargar;
+	}
+	
 }

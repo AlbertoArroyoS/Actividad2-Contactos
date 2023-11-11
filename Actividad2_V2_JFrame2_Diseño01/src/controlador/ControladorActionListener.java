@@ -3,8 +3,16 @@ package controlador;
 import java.awt.event.ActionEvent;
 
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 import vista.VistaPrincipal;
@@ -96,6 +104,16 @@ public class ControladorActionListener implements ActionListener{
 		        eliminarContacto();
 		}
 		
+		// Al pulsar un botón para guardar la tabla en un archivo
+	    if (e.getSource() == vistaPrincipal.getBotonGuardar()) {
+	        guardarTablaEnArchivo();
+	    }
+	    
+	    // Al pulsar un botón para cargar datos desde un archivo
+	    if (e.getSource() == vistaPrincipal.getBotonCargar()) {
+	        cargarDatosDesdeArchivo();
+	    }
+		
     }
 			
 	//metodo para añadir los datos de los campos nombre y telefono a la tabla
@@ -182,5 +200,74 @@ public class ControladorActionListener implements ActionListener{
 		vistaSecundaria.getCampoNombre().setText(null);
         vistaSecundaria.getCampoTelefono().setText(null);
 	}
+	
+    // Método para guardar la tabla en un archivo
+    private void guardarTablaEnArchivo() {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Guardar Tabla");
+        fileChooser.setFileFilter(new FileNameExtensionFilter("Archivos de texto (*.txt)", "txt"));
+        DefaultTableModel tableModel = vistaPrincipal.getTableModel();
+        int seleccion = fileChooser.showSaveDialog(vistaPrincipal);
+
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            File archivo = fileChooser.getSelectedFile();
+
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivo))) {
+                // Escribir las columnas
+                for (int i = 0; i < tableModel.getColumnCount(); i++) {
+                    writer.write(tableModel.getColumnName(i) + "\t");
+                }
+                writer.newLine();
+
+                // Escribir los datos de la tabla
+                for (int i = 0; i < tableModel.getRowCount(); i++) {
+                    for (int j = 0; j < tableModel.getColumnCount(); j++) {
+                        writer.write(tableModel.getValueAt(i, j).toString() + "\t");
+                    }
+                    writer.newLine();
+                }
+
+                writer.flush();
+                JOptionPane.showMessageDialog(null, "Tabla guardada correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            } catch (IOException e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Error al guardar la tabla", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+    
+    // Método para cargar datos desde un archivo
+    private void cargarDatosDesdeArchivo() {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Cargar Datos desde Archivo");
+        fileChooser.setFileFilter(new FileNameExtensionFilter("Archivos de texto (*.txt)", "txt"));
+        DefaultTableModel tableModel = vistaPrincipal.getTableModel();
+        int seleccion = fileChooser.showOpenDialog(vistaPrincipal);
+
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            File archivo = fileChooser.getSelectedFile();
+
+            try (BufferedReader reader = new BufferedReader(new FileReader(archivo))) {
+                // Limpiar la tabla antes de cargar nuevos datos
+                tableModel.setRowCount(0);
+
+                // Leer la primera línea que contiene los nombres de las columnas
+                String[] columnNames = reader.readLine().split("\t");
+                tableModel.setColumnIdentifiers(columnNames);
+
+                // Leer las líneas restantes que contienen los datos
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    String[] rowData = line.split("\t");
+                    tableModel.addRow(rowData);
+                }
+
+                JOptionPane.showMessageDialog(null, "Datos cargados correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            } catch (IOException e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Error al cargar datos desde el archivo", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
 	 	 
 }
