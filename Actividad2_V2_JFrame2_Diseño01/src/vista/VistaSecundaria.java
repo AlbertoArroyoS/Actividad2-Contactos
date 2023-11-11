@@ -1,6 +1,7 @@
 package vista;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -56,6 +57,7 @@ public class VistaSecundaria extends JDialog {
         nombre.setBounds(60, 20, 80, 20);
         //cambio el color del nombre
         nombre.setForeground(Color.WHITE);
+        nombre.setFont(new Font("Dialog",Font.BOLD,14));
         background.add(nombre);
         
         campoNombre = new JTextField();
