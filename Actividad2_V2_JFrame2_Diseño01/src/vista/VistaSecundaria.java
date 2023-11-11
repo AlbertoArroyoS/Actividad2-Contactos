@@ -1,9 +1,10 @@
 package vista;
 
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.Toolkit;
 
-
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -75,6 +76,8 @@ public class VistaSecundaria extends JDialog {
         	}
         });
         campoNombre.setBounds(140, 20, 150, 20);
+        //quitar el borde
+        campoNombre.setBorder(null);
         background.add(campoNombre);
         
         telefono = new JLabel("Teléfono");
@@ -102,18 +105,30 @@ public class VistaSecundaria extends JDialog {
         	}
         });
         campoTelefono.setBounds(140, 60, 150, 20);
+      //quitar el borde
+        campoTelefono.setBorder(null);
         background.add(campoTelefono);
-
-        botonOk = new JButton("Ok");
+        
+     // Asignar imagen al botón Ok
+        ImageIcon okIcon = new ImageIcon("img/ok512.png");
+        Image imageOk = okIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+        okIcon = new ImageIcon(imageOk);
+        botonOk = new JButton(okIcon);
+        botonOk.setBounds(180, 105, 30, 30);
+        botonOk.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
+        botonOk.setBorderPainted(false); // Elimina el borde del botón
         botonOk.addActionListener(controlador);
-        botonOk.setBounds(180, 105, 80, 30);
-        botonOk.setBackground(Color.WHITE);
         background.add(botonOk);
-
-        botonCancel = new JButton("Cancel");
-        botonCancel.addActionListener(controlador);
-        botonCancel.setBounds(270, 105, 80, 30);
+        
+        ImageIcon cancelIcon = new ImageIcon("img/cancelar512.png");
+        Image imageCancel = cancelIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+        okIcon = new ImageIcon(imageCancel);
+        botonCancel = new JButton(okIcon);
+        botonCancel.setBounds(270, 105, 30, 30);
+        botonCancel.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
+        botonCancel.setBorderPainted(false); // Elimina el borde del botón
         botonCancel.setBackground(Color.WHITE);
+        botonCancel.addActionListener(controlador);
         background.add(botonCancel);
     }
 
