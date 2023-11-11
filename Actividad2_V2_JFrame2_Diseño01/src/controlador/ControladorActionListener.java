@@ -56,12 +56,12 @@ public class ControladorActionListener implements ActionListener{
 		
 		//Al pulsar boton OK de añadir contacto, añade nombre y telefono a la tabla
 		if (vistaSecundaria != null && e.getSource() == vistaSecundaria.getBotonOk()) {
-
+			
 
 	        if ("Añadir contacto".equals(vistaSecundaria.getTitle())) {
-	            addDatosTabla();
-	            resetCampos();
-	            vistaSecundaria.dispose();
+	    	    addDatosTabla();
+	        	            
+	    	  //  vistaSecundaria.dispose();
 	        } else if ("Editar contacto".equals(vistaSecundaria.getTitle())) {
 	            editDatosTabla();
 	            resetCampos();
@@ -117,27 +117,33 @@ public class ControladorActionListener implements ActionListener{
     }
 			
 	//metodo para añadir los datos de los campos nombre y telefono a la tabla
+	
 	public void addDatosTabla() {
-	    String nombre = vistaSecundaria.getCampoNombre().getText();
+		String nombre = vistaSecundaria.getCampoNombre().getText();
 	    String telefono = vistaSecundaria.getCampoTelefono().getText();
-	    if(nombre.isEmpty()){
-	        JOptionPane.showMessageDialog(null,"Nombre está vacío", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-	        if (vistaSecundaria.isVisible()) {
-	            vistaSecundaria.dispose(); // Cierra la ventana si está visible
-	        }
-	        vistaSecundaria = null; // Reinicializa la instancia de VistaAdd
-	    } else if(telefono.isEmpty()){
-	        JOptionPane.showMessageDialog(null,"Teléfono está vacío", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-	        if (vistaSecundaria.isVisible()) {
-	            vistaSecundaria.dispose(); // Cierra la ventana si está visible
-	        }
-	        vistaSecundaria = null; // Reinicializa la instancia de VistaAdd
-	    } else {
-	        DefaultTableModel tableModel = vistaPrincipal.getTableModel();
-	        tableModel.addRow(new String[]{nombre, telefono});
-	       // resetCampos();
-	    }
+	    if (nombre.isEmpty()) {
+		       JOptionPane.showOptionDialog(null,
+		               "Nombre está vacío",
+		               "Aviso",
+		               JOptionPane.DEFAULT_OPTION,
+		               JOptionPane.WARNING_MESSAGE,
+		               null,
+		               new Object[]{"Aceptar"},  // Añadimos un botón "Aceptar"
+		               "Aceptar");
+		       
+		 } else if (telefono.isEmpty()) {
+		        JOptionPane.showMessageDialog(null, "Teléfono está vacío", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+		        // No hagas nada más, simplemente deja que la ventana secundaria permanezca abierta.
+		 }else {
+		    	 DefaultTableModel tableModel = vistaPrincipal.getTableModel();
+		    	 tableModel.addRow(new String[]{nombre, telefono});
+		    	 vistaSecundaria.dispose();
+		    	 resetCampos();
+		    	 //resetCampos();
+		 }
+	       
 	}
+
 	
 	public void ponerDatosTabla() {
 		int selectedRow = vistaPrincipal.obtenerFilaSeleccionada();
@@ -198,7 +204,8 @@ public class ControladorActionListener implements ActionListener{
 	}
 	public void resetCampos() {
 		vistaSecundaria.getCampoNombre().setText(null);
-        vistaSecundaria.getCampoTelefono().setText(null);
+        vistaSecundaria.getCampoTelefono().setText(null); 
+		 
 	}
 	
     // Método para guardar la tabla en un archivo
