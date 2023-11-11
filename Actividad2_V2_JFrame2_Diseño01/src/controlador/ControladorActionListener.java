@@ -47,23 +47,27 @@ public class ControladorActionListener implements ActionListener{
         }
 		
 		//Al pulsar boton OK de añadir contacto, añade nombre y telefono a la tabla
-		if (e.getSource() == vistaSecundaria.getBotonOk()) {
-			
-			if("Añadir contacto".equals(vistaSecundaria.getTitle())) {
-				addDatosTabla();
-				resetCampos();
-		          //  vistaAdd.setVisible(false);
-		        vistaSecundaria.dispose();
-			}if("Editar contacto".equals(vistaSecundaria.getTitle())) {
-				editDatosTabla();
-				resetCampos();
-				vistaSecundaria.dispose();
-			}         
-        }
+		if (vistaSecundaria != null && e.getSource() == vistaSecundaria.getBotonOk()) {
+
+
+	        if ("Añadir contacto".equals(vistaSecundaria.getTitle())) {
+	            addDatosTabla();
+	            resetCampos();
+	            vistaSecundaria.dispose();
+	        } else if ("Editar contacto".equals(vistaSecundaria.getTitle())) {
+	            editDatosTabla();
+	            resetCampos();
+	            vistaSecundaria.dispose();
+	        }
+	    }
 		
 		//Al pulsar cancelar de añadir contacto cierra y queda la principal
 		//else if (vistaAdd != null && e.getSource() == vistaAdd.getBotonCancel()) {
-		if (e.getSource() == vistaSecundaria.getBotonCancel()) {
+		if (vistaSecundaria != null && e.getSource() == vistaSecundaria.getBotonCancel()) {
+			if(vistaSecundaria==null) {
+				vistaSecundaria = new VistaSecundaria(this);
+				
+			}
             vistaSecundaria.dispose();
         }
 		
