@@ -144,6 +144,16 @@ public class ControladorActionListener implements ActionListener{
 			               null,
 			               new Object[]{"Aceptar"},  // Añadimos un botón "Aceptar"
 			               "Aceptar");
+		 }else if(telefono.length()<9){
+			 JOptionPane.showOptionDialog(null,
+		               "El teléfono debe tener 9 digitos",
+		               "Aviso",
+		               JOptionPane.DEFAULT_OPTION,
+		               JOptionPane.WARNING_MESSAGE,
+		               null,
+		               new Object[]{"Aceptar"},  // Añadimos un botón "Aceptar"
+		               "Aceptar");
+			 
 		 }else {
 		    	 DefaultTableModel tableModel = vistaPrincipal.getTableModel();
 		    	 tableModel.addRow(new String[]{nombre, telefono});
@@ -185,7 +195,17 @@ public class ControladorActionListener implements ActionListener{
 	    		JOptionPane.showMessageDialog(null,"Nombre esta vacio", "Aviso", JOptionPane.INFORMATION_MESSAGE);
 	    	}else if(telefonoEditado.isEmpty()){
 	    		JOptionPane.showMessageDialog(null,"Telefono esta vacio", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-	    	}else {
+	    	}else if(telefonoEditado.length()<9){
+				 JOptionPane.showOptionDialog(null,
+			               "El teléfono debe tener 9 digitos",
+			               "Aviso",
+			               JOptionPane.DEFAULT_OPTION,
+			               JOptionPane.WARNING_MESSAGE,
+			               null,
+			               new Object[]{"Aceptar"},  // Añadimos un botón "Aceptar"
+			               "Aceptar");
+				 
+			 }else {
 	    		DefaultTableModel tableModel = vistaPrincipal.getTableModel();
 	    		tableModel = vistaPrincipal.getTableModel();
 	    		tableModel.setValueAt(nombreEditado, filaSeleccionada, 0);
@@ -288,5 +308,6 @@ public class ControladorActionListener implements ActionListener{
             }
         }
     }
+
 	 	 
 }

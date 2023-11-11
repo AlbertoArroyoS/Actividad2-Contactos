@@ -80,6 +80,7 @@ public class VistaSecundaria extends JDialog {
         campoNombre.setBounds(140, 20, 150, 20);
         //quitar el borde
         campoNombre.setBorder(null);
+        campoNombre.setFont(new Font("Dialog",Font.BOLD,14));
         background.add(campoNombre);
         
         telefono = new JLabel("Teléfono");
@@ -110,6 +111,7 @@ public class VistaSecundaria extends JDialog {
         campoTelefono.setBounds(140, 60, 150, 20);
       //quitar el borde
         campoTelefono.setBorder(null);
+        campoTelefono.setFont(new Font("Dialog",Font.BOLD,14));
         background.add(campoTelefono);
         
      // Asignar imagen al botón Ok
