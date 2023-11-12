@@ -18,7 +18,17 @@ import javax.swing.JTextField;
 import controlador.ControladorActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-
+/**
+ * Clase que representa una ventana secundaria para agregar contactos.
+ *
+ * Esta clase hereda de JDialog y contiene elementos como etiquetas, campos de texto y botones.
+ * Los campos de texto permiten la entrada de informacion del usuario, mientras que los botones
+ * ofrecen opciones para confirmar o cancelar la accion.
+ *
+ * @author Alberto Arroyo Santofimia
+ * @see JDialog
+ * @version v1.0
+ */
 public class VistaSecundaria extends JDialog {
     private JLabel nombre;
     private JLabel telefono;
@@ -30,6 +40,11 @@ public class VistaSecundaria extends JDialog {
     private GradientPanel background;  // Nuevo componente para el fondo
     
     //le pasamos por parametro el controlador
+    /**
+     * Constructor de la clase VistaSecundaria.
+     * 
+     * @param controlador ControladorActionListener para manejar eventos de la interfaz.
+     */
     public VistaSecundaria(ControladorActionListener controlador) {
         this.controlador = controlador;
 
@@ -50,7 +65,9 @@ public class VistaSecundaria extends JDialog {
         // Hacer visible la ventana (debe ser la última opción del constructor)
         setVisible(true);
     }
-
+    /**
+     * Inicializa los componentes de la interfaz grafica.
+     */
     private void initVariables() {
         background.setLayout(null);
         // Crear los componentes y configurarlos

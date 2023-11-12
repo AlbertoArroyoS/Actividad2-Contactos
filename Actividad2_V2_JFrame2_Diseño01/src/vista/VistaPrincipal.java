@@ -1,17 +1,11 @@
 package vista;
 
-
-
-
-
 import java.awt.Toolkit;
-
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
@@ -23,7 +17,13 @@ import java.awt.FontFormatException;
 import java.awt.Image;
 import java.io.IOException;
 
-
+/**
+ * Clase que representa la vista principal de la aplicacion.
+ * 
+ * @author Alberto Arroyo Santofimia
+ * @see JFrame
+ * @version v1.0
+ */
 public class VistaPrincipal extends JFrame{
 	//Botones 
 	private JButton botonAdd;
@@ -46,6 +46,10 @@ public class VistaPrincipal extends JFrame{
 
 	
 	//Constructor para inicializar las variables
+	
+	 /**
+	 * Constructor para inicializar las variables de la vista.
+	 */
 	public VistaPrincipal() {
 		//crear la ventana y establecerla
 		setBounds(100,100,515,390);
@@ -66,6 +70,9 @@ public class VistaPrincipal extends JFrame{
 		
 	}
 	//metodo para inicializar variables
+	/**
+     * Metodo privado para inicializar las variables de la vista.
+     */
 	private void initVariables() {
 		
 		//Tabla
@@ -206,7 +213,10 @@ public class VistaPrincipal extends JFrame{
 		
 	//creamos un metodo en la vista para tener acceso al controlador
 	//hay que hacer un metodo por cada evento que necesite ser escuchado
-
+	/**
+     * Metodo para establecer listeners al controlador.
+     * @param controlador representa el controlador que manejara los eventos.
+     */
 	public void establecerListeners(ControladorActionListener controlador) {
 		
 		botonAdd.addActionListener(controlador);
@@ -220,8 +230,12 @@ public class VistaPrincipal extends JFrame{
 	}
 	
 		//Obtener la fila seleccionada
-		public int obtenerFilaSeleccionada() {
-			return tablaContactos.getSelectedRow();
+	/**
+     * Metodo para obtener la fila seleccionada en la tabla de contactos.
+     * @return La fila seleccionada.
+     */
+	public int obtenerFilaSeleccionada() {
+		return tablaContactos.getSelectedRow();
 	}
 	
 	

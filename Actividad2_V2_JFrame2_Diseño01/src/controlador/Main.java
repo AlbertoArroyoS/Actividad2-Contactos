@@ -1,9 +1,22 @@
 package controlador;
 
 
+import javax.swing.JFrame;
+
 import vista.VistaPrincipal;
 
-
+/**
+ * Clase principal (Main) que contiene el metodo main para iniciar la aplicacion.
+ * En esta clase se crea la vista principal, el controlador de eventos y se establece la conexion entre ellos.
+ * 
+ * La aplicación sigue el patron de diseño Modelo-Vista-Controlador (MVC), donde:
+ * - La vista (VistaPrincipal) muestra la interfaz grafica al usuario.
+ * - El controlador (ControladorActionListener) maneja los eventos generados por la vista y realiza las operaciones correspondientes.
+ * 
+ * @author Alberto Arroyo Santofimia
+ * 
+ * @version v1.0
+ */
 public class Main {
 
 	public static void main(String[] args) {

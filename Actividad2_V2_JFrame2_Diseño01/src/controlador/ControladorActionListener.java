@@ -20,7 +20,16 @@ import javax.swing.table.DefaultTableModel;
 import vista.VistaPrincipal;
 import vista.VistaSecundaria;
 
-
+/**
+ * Clase ControladorActionListener que implementa la interfaz ActionListener.
+ * Esta clase se encarga de gestionar las acciones realizadas por el usuario en la interfaz grafica.
+ * Controla los eventos de los botones y realiza las acciones correspondientes, como abrir ventanas,
+ * añadir, editar o eliminar contactos, guardar y cargar datos desde un archivo, ordenar la tabla, entre otras.
+ * Ademas, gestiona la reproducción de sonidos al realizar acciones especificas.
+ * 
+ * @author Alberto Arroyo Santofimia
+ * @version v1.0
+ */
 public class ControladorActionListener implements ActionListener{
 	
 	//referencia a la vista creando una variable
@@ -33,11 +42,22 @@ public class ControladorActionListener implements ActionListener{
 	 
 	//Inicializar la variable en el constructor
 	 
+	 /**
+     * Constructor de la clase ControladorActionListener.
+     * Inicializa la variable con la vista principal.
+     *
+     * @param vista representa la vista principal a la que se asocia el controlador.
+     */
 	public ControladorActionListener(VistaPrincipal vista) {
 		this.vistaPrincipal = vista;
 		
 	}
-
+	/**
+     * Metodo actionPerformed que se ejecuta cuando se realiza una accion en la interfaz.
+     * Controla los eventos de los botones y realiza las acciones correspondientes.
+     *
+     * @param e representa el evento de accion, el boton sobre el que se hace click.
+     */
 	@Override
     public void actionPerformed(ActionEvent e) {
 		//Aqui ponemos todo lo que hace click cuando le damos a los botones	
@@ -127,16 +147,19 @@ public class ControladorActionListener implements ActionListener{
 	    	reproducirSonido(sonidoBoton);
 	        cargarDatosDesdeArchivo();
 	    }
+	    // Al pulsar un botón para cambiar el sonido
 	    if (e.getSource() == vistaPrincipal.getBotonSonido()) {
 	    	reproducirSonido(sonidoBoton);
 	    	
 	    	sonidoBoton ="audio/mouse-click.wav";
 	   	 	sonidoAlert="audio/windows-error.wav";
 	    }
+	    // Al pulsar un botón para desactivar el sonido
 	    if (e.getSource() == vistaPrincipal.getBotonNoSonido()) {	
 	    	sonidoBoton ="audio/no-sonido.wav";
 	   	 	sonidoAlert="audio/no-sonido.wav";
 	    }
+        // Al pulsar un botón para ordenar alfabéticamente la tabla
 	    if (e.getSource() == vistaPrincipal.getBotonAZ()) {	
 	    	reproducirSonido(sonidoBoton);
 	    	DefaultTableModel tableModel = vistaPrincipal.getTableModel();   
@@ -152,7 +175,9 @@ public class ControladorActionListener implements ActionListener{
     }
 			
 	//metodo para añadir los datos de los campos nombre y telefono a la tabla
-	
+	/**
+     * Metodo para añadir los datos de los campos nombre y telefono a la tabla.
+     */
 	public void addDatosTabla() {
 		String nombre = vistaSecundaria.getCampoNombre().getText();
 	    String telefono = vistaSecundaria.getCampoTelefono().getText();
@@ -199,7 +224,9 @@ public class ControladorActionListener implements ActionListener{
 	       
 	}
 
-	
+	/**
+     * Metodo para poner los datos de la fila seleccionada en los campos de edicion.
+     */
 	public void ponerDatosTabla() {
 		int selectedRow = vistaPrincipal.obtenerFilaSeleccionada();
 
@@ -216,6 +243,9 @@ public class ControladorActionListener implements ActionListener{
 		}
 		
 	}
+	/**
+     * Metodo para editar los datos de la tabla con los valores modificados.
+     */
 	public void editDatosTabla() {
 		
 		int filaSeleccionada = vistaPrincipal.obtenerFilaSeleccionada();
@@ -260,6 +290,9 @@ public class ControladorActionListener implements ActionListener{
         }
 
 	}
+	/**
+     * Metodo para eliminar un contacto de la tabla.
+     */
 	public void eliminarContacto() {
 		int filaSeleccionada = vistaPrincipal.obtenerFilaSeleccionada();
 
@@ -274,6 +307,9 @@ public class ControladorActionListener implements ActionListener{
         }
 		
 	}
+	/**
+     * Metodo que reinicia los campos de texto en la vista secundaria.
+     */
 	public void resetCampos() {
 		vistaSecundaria.getCampoNombre().setText(null);
         vistaSecundaria.getCampoTelefono().setText(null); 
@@ -281,6 +317,9 @@ public class ControladorActionListener implements ActionListener{
 	}
 	
     // Método para guardar la tabla en un archivo
+	/**
+     * Metodo para guardar la tabla actual en un archivo de texto.
+     */
     private void guardarTablaEnArchivo() {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Guardar Tabla");
@@ -317,6 +356,9 @@ public class ControladorActionListener implements ActionListener{
     }
     
     // Método para cargar datos desde un archivo
+    /**
+     * Metodo para cargar datos desde un archivo de texto y actualiza la tabla.
+     */
     private void cargarDatosDesdeArchivo() {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Cargar Datos desde Archivo");
@@ -350,8 +392,10 @@ public class ControladorActionListener implements ActionListener{
             }
         }
     }
-    //ordenar la tabla alfabeticamente
  // Método para ordenar la tabla alfabéticamente
+    /**
+     * Metodo que ordena alfabéticamente los datos de la tabla por la primera columna (nombre).
+     */
     private void ordenarTablaAlfabeticamente() {
         DefaultTableModel tableModel = vistaPrincipal.getTableModel();
         
@@ -374,9 +418,14 @@ public class ControladorActionListener implements ActionListener{
             tableModel.addRow(row);
         }
     }
-
     
     //reproducir sonidos con la clase clip
+    
+    /**
+     * Metodo para reproducir un sonido a partir de un archivo de audio wav.
+     * 
+     * @param ruta representa la ruta del archivo de sonido.
+     */
     private void reproducirSonido(String ruta) {
         try {
             File file = new File(ruta);
@@ -391,6 +440,5 @@ public class ControladorActionListener implements ActionListener{
             ex.printStackTrace();
         }
     }
-
 	 	 
 }

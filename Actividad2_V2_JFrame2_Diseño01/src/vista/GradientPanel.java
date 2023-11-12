@@ -7,7 +7,13 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
-
+/**
+ * Clase que representa un panel con fondo de degradado
+ * 
+ * @author Alberto Arroyo Santofimia
+ * 
+ * @version v1.0
+ */
 public class GradientPanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
