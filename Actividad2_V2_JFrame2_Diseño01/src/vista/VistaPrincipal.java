@@ -205,6 +205,7 @@ public class VistaPrincipal extends JFrame{
 	//hay que hacer un metodo por cada evento que necesite ser escuchado
 	
 
+
 	public void establecerListeners(ControladorActionListener controlador) {
 		
 		botonAdd.addActionListener(controlador);
@@ -245,6 +246,9 @@ public class VistaPrincipal extends JFrame{
 	}
 	public JButton getBotonSonido() {
 		return botonSonido;
+	}
+	public JButton getBotonNoSonido() {
+		return botonNoSonido;
 	}
 	
 }

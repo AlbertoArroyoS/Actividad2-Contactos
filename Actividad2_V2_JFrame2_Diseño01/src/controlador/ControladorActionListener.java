@@ -134,7 +134,11 @@ public class ControladorActionListener implements ActionListener{
 	    	sonidoBoton ="audio/mouse-click.wav";
 	   	 	sonidoAlert="audio/windows-error.wav";
 	    }
-	    
+	    if (e.getSource() == vistaPrincipal.getBotonNoSonido()) {	
+	    	sonidoBoton ="audio/no-sonido.wav";
+	   	 	sonidoAlert="audio/no-sonido.wav";
+	    }
+
 		
     }
 			
