@@ -3,7 +3,6 @@ package vista;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -18,7 +17,9 @@ import java.awt.Image;
 import java.io.IOException;
 
 /**
- * Clase que representa la vista principal de la aplicacion.
+ * Clase que representa la vista principal de la aplicacion de contactos.
+ * Extiende JFrame y contiene elementos como botones, una tabla y otros componentes visuales.
+ * Proporciona metodos para obtener informacion de la interfaz y establecer listeners al controlador.
  * 
  * @author Alberto Arroyo Santofimia
  * @see JFrame

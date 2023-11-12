@@ -1,8 +1,5 @@
 package controlador;
 
-
-import javax.swing.JFrame;
-
 import vista.VistaPrincipal;
 
 /**
