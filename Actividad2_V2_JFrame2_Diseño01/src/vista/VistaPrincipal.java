@@ -38,6 +38,7 @@ public class VistaPrincipal extends JFrame{
 	private JButton botonGuardar;
 	private JButton botonCargar;
 	private JButton botonSonido, botonNoSonido;
+	private JButton botonAZ;
 	private JLabel icono, nombreApp;
 	
 	//DefaultTableModel(tabla |x|y|)  ->  JTable  -> ScrollPane
@@ -169,6 +170,15 @@ public class VistaPrincipal extends JFrame{
 	     botonNoSonido.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
 	     botonNoSonido.setBorderPainted(false); // Elimina el borde del botón
 	     background.add(botonNoSonido);
+	     
+	     ImageIcon iconoOrdenar = new ImageIcon("img/clasificar.png");
+	     Image imageOrdenar = iconoOrdenar.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+	     iconoOrdenar = new ImageIcon(imageOrdenar);
+	     botonAZ = new JButton(iconoOrdenar);
+	     botonAZ.setBounds(160, 50, 30, 30);
+	     botonAZ.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
+	     botonAZ.setBorderPainted(false); // Elimina el borde del botón
+	     background.add(botonAZ);
 		
 		
 		//Cambiar la fuente de la ventana
@@ -206,6 +216,7 @@ public class VistaPrincipal extends JFrame{
 	
 
 
+
 	public void establecerListeners(ControladorActionListener controlador) {
 		
 		botonAdd.addActionListener(controlador);
@@ -215,6 +226,7 @@ public class VistaPrincipal extends JFrame{
 		botonCargar.addActionListener(controlador);
 		botonSonido.addActionListener(controlador);
 		botonNoSonido.addActionListener(controlador);
+		botonAZ.addActionListener(controlador);
 	}
 	
 		//Obtener la fila seleccionada
@@ -249,6 +261,9 @@ public class VistaPrincipal extends JFrame{
 	}
 	public JButton getBotonNoSonido() {
 		return botonNoSonido;
+	}
+	public JButton getBotonAZ() {
+		return botonAZ;
 	}
 	
 }

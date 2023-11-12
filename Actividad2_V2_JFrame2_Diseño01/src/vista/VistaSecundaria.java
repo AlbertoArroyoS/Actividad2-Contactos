@@ -127,8 +127,8 @@ public class VistaSecundaria extends JDialog {
         
         ImageIcon cancelIcon = new ImageIcon("img/cancelar512.png");
         Image imageCancel = cancelIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-        okIcon = new ImageIcon(imageCancel);
-        botonCancel = new JButton(okIcon);
+        cancelIcon = new ImageIcon(imageCancel);
+        botonCancel = new JButton(cancelIcon);
         botonCancel.setBounds(270, 105, 30, 30);
         botonCancel.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
         botonCancel.setBorderPainted(false); // Elimina el borde del botón

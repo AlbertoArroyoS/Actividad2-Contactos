@@ -10,6 +10,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Comparator;
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -17,6 +19,8 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 import vista.VistaPrincipal;
 import vista.VistaSecundaria;
@@ -138,6 +142,16 @@ public class ControladorActionListener implements ActionListener{
 	    	sonidoBoton ="audio/no-sonido.wav";
 	   	 	sonidoAlert="audio/no-sonido.wav";
 	    }
+	    if (e.getSource() == vistaPrincipal.getBotonAZ()) {	
+	    	reproducirSonido(sonidoBoton);
+	    	DefaultTableModel tableModel = vistaPrincipal.getTableModel();   
+    		if (tableModel.getRowCount() > 1) {
+    			ordenarTablaAlfabeticamente();				
+    		}else {
+    			reproducirSonido(sonidoAlert);
+    			JOptionPane.showMessageDialog(vistaPrincipal, "La tabla esta vacía.", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+    		}
+	    }
 
 		
     }
@@ -149,7 +163,7 @@ public class ControladorActionListener implements ActionListener{
 	    String telefono = vistaSecundaria.getCampoTelefono().getText();
 	    if (nombre.isEmpty()) {
 	    	reproducirSonido(sonidoAlert);
-		       JOptionPane.showOptionDialog(null,
+		       JOptionPane.showOptionDialog(vistaPrincipal,
 		               "Nombre está vacío",
 		               "Aviso",
 		               JOptionPane.DEFAULT_OPTION,
@@ -162,7 +176,7 @@ public class ControladorActionListener implements ActionListener{
 		 } else if (telefono.isEmpty()) {
 			 reproducirSonido(sonidoAlert);
 		     //   JOptionPane.showMessageDialog(null, "Teléfono está vacío", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-		        JOptionPane.showOptionDialog(null,
+		        JOptionPane.showOptionDialog(vistaPrincipal,
 			               "Teléfono está vacío",
 			               "Aviso",
 			               JOptionPane.DEFAULT_OPTION,
@@ -172,7 +186,7 @@ public class ControladorActionListener implements ActionListener{
 			               "Aceptar");
 		 }else if(telefono.length()<9){
 			 reproducirSonido(sonidoAlert);
-			 JOptionPane.showOptionDialog(null,
+			 JOptionPane.showOptionDialog(vistaPrincipal,
 		               "El teléfono debe tener 9 digitos",
 		               "Aviso",
 		               JOptionPane.DEFAULT_OPTION,
@@ -219,13 +233,13 @@ public class ControladorActionListener implements ActionListener{
 	    	String telefonoEditado = vistaSecundaria.getCampoTelefono().getText();
 	    	if(nombreEditado.isEmpty()){
 	    		reproducirSonido(sonidoAlert);
-	    		JOptionPane.showMessageDialog(null,"Nombre esta vacio", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+	    		JOptionPane.showMessageDialog(vistaPrincipal,"Nombre esta vacio", "Aviso", JOptionPane.INFORMATION_MESSAGE);
 	    	}else if(telefonoEditado.isEmpty()){
 	    		reproducirSonido(sonidoAlert);
-	    		JOptionPane.showMessageDialog(null,"Telefono esta vacio", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+	    		JOptionPane.showMessageDialog(vistaPrincipal,"Telefono esta vacio", "Aviso", JOptionPane.INFORMATION_MESSAGE);
 	    	}else if(telefonoEditado.length()<9){
 	    		reproducirSonido(sonidoAlert);
-				 JOptionPane.showOptionDialog(null,
+				 JOptionPane.showOptionDialog(vistaPrincipal,
 			               "El teléfono debe tener 9 digitos",
 			               "Aviso",
 			               JOptionPane.DEFAULT_OPTION,
@@ -298,11 +312,11 @@ public class ControladorActionListener implements ActionListener{
                 }
 
                 writer.flush();
-                JOptionPane.showMessageDialog(null, "Tabla guardada correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(vistaPrincipal, "Tabla guardada correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             } catch (IOException e) {
                 e.printStackTrace();
                 reproducirSonido(sonidoAlert);
-                JOptionPane.showMessageDialog(null, "Error al guardar la tabla", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(vistaPrincipal, "Error al guardar la tabla", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -333,14 +347,39 @@ public class ControladorActionListener implements ActionListener{
                     tableModel.addRow(rowData);
                 }
 
-                JOptionPane.showMessageDialog(null, "Datos cargados correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(vistaPrincipal, "Datos cargados correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             } catch (IOException e) {
                 e.printStackTrace();
                 reproducirSonido(sonidoAlert);
-                JOptionPane.showMessageDialog(null, "Error al cargar datos desde el archivo", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(vistaPrincipal, "Error al cargar datos desde el archivo", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
+    //ordenar la tabla alfabeticamente
+ // Método para ordenar la tabla alfabéticamente
+    private void ordenarTablaAlfabeticamente() {
+        DefaultTableModel tableModel = vistaPrincipal.getTableModel();
+        
+        // Obtener los datos actuales de la tabla
+        Object[][] data = new Object[tableModel.getRowCount()][tableModel.getColumnCount()];
+        for (int i = 0; i < tableModel.getRowCount(); i++) {
+            for (int j = 0; j < tableModel.getColumnCount(); j++) {
+                data[i][j] = tableModel.getValueAt(i, j);
+            }
+        }
+        
+        // Ordenar los datos por la primera columna (nombre)
+        Arrays.sort(data, Comparator.comparing(o -> o[0].toString()));
+        
+        // Limpiar el modelo de la tabla
+        tableModel.setRowCount(0);
+        
+        // Agregar los datos ordenados al modelo de la tabla
+        for (Object[] row : data) {
+            tableModel.addRow(row);
+        }
+    }
+
     
     //reproducir sonidos con la clase clip
     private void reproducirSonido(String ruta) {
