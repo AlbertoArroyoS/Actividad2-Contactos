@@ -37,6 +37,7 @@ public class VistaPrincipal extends JFrame{
 	private JButton botonDelete;
 	private JButton botonGuardar;
 	private JButton botonCargar;
+	private JButton botonSonido, botonNoSonido;
 	private JLabel icono, nombreApp;
 	
 	//DefaultTableModel(tabla |x|y|)  ->  JTable  -> ScrollPane
@@ -150,6 +151,25 @@ public class VistaPrincipal extends JFrame{
 		icono.setBounds(55, 9, 80, 80);
 		background.add(icono);
 		
+		 ImageIcon sonidoIcon = new ImageIcon("img/altavoz.png");
+	     Image imageSonido = sonidoIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+	     sonidoIcon = new ImageIcon(imageSonido);
+	     botonSonido = new JButton(sonidoIcon);
+	     botonSonido.setBounds(30, 221, 30, 30);
+	     botonSonido.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
+	     botonSonido.setBorderPainted(false); // Elimina el borde del botón
+	     background.add(botonSonido);
+	     
+
+		 ImageIcon sonidoNoIcon = new ImageIcon("img/silencio-naranja.png");
+	     Image imageNoSonido = sonidoNoIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+	     sonidoNoIcon = new ImageIcon(imageNoSonido);
+	     botonNoSonido = new JButton(sonidoNoIcon);
+	     botonNoSonido.setBounds(70, 221, 30, 30);
+	     botonNoSonido.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
+	     botonNoSonido.setBorderPainted(false); // Elimina el borde del botón
+	     background.add(botonNoSonido);
+		
 		
 		//Cambiar la fuente de la ventana
 		
@@ -192,8 +212,11 @@ public class VistaPrincipal extends JFrame{
 		botonDelete.addActionListener(controlador);
 		botonGuardar.addActionListener(controlador);
 		botonCargar.addActionListener(controlador);
+		botonSonido.addActionListener(controlador);
+		botonNoSonido.addActionListener(controlador);
 	}
-	//Obtener la fila seleccionada
+	
+		//Obtener la fila seleccionada
 		public int obtenerFilaSeleccionada() {
 			return tablaContactos.getSelectedRow();
 	}
@@ -219,6 +242,9 @@ public class VistaPrincipal extends JFrame{
 	}
 	public JButton getBotonCargar() {
 		return botonCargar;
+	}
+	public JButton getBotonSonido() {
+		return botonSonido;
 	}
 	
 }

@@ -128,6 +128,13 @@ public class ControladorActionListener implements ActionListener{
 	    	reproducirSonido(sonidoBoton);
 	        cargarDatosDesdeArchivo();
 	    }
+	    if (e.getSource() == vistaPrincipal.getBotonSonido()) {
+	    	reproducirSonido(sonidoBoton);
+	    	
+	    	sonidoBoton ="audio/mouse-click.wav";
+	   	 	sonidoAlert="audio/windows-error.wav";
+	    }
+	    
 		
     }
 			
