@@ -6,6 +6,7 @@ package vista;
 
 import java.awt.Toolkit;
 
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,20 +16,13 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
-
 import controlador.ControladorActionListener;
-import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.Image;
-import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.awt.event.ActionEvent;
-import java.awt.SystemColor;
-import java.awt.FlowLayout;
-import java.awt.BorderLayout;
-import java.awt.CardLayout;
+
 
 public class VistaPrincipal extends JFrame{
 	//Botones 
@@ -171,7 +165,7 @@ public class VistaPrincipal extends JFrame{
 	     botonNoSonido.setBorderPainted(false); // Elimina el borde del botón
 	     background.add(botonNoSonido);
 	     
-	     ImageIcon iconoOrdenar = new ImageIcon("img/clasificar.png");
+	     ImageIcon iconoOrdenar = new ImageIcon("img/clasificar2.png");
 	     Image imageOrdenar = iconoOrdenar.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 	     iconoOrdenar = new ImageIcon(imageOrdenar);
 	     botonAZ = new JButton(iconoOrdenar);
@@ -209,13 +203,9 @@ public class VistaPrincipal extends JFrame{
 		
 	}
 	//
-	
-	
+		
 	//creamos un metodo en la vista para tener acceso al controlador
 	//hay que hacer un metodo por cada evento que necesite ser escuchado
-	
-
-
 
 	public void establecerListeners(ControladorActionListener controlador) {
 		
@@ -235,8 +225,7 @@ public class VistaPrincipal extends JFrame{
 	}
 	
 	
-	
-	//gettes y setters de los botones para acceder a ellos desde el controlador
+	//getters y setters de los botones para acceder a ellos desde el controlador
 	
 	public JButton getBotonAdd() {
 		return botonAdd;

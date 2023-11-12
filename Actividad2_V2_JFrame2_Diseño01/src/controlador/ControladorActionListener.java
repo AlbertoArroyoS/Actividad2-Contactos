@@ -2,7 +2,6 @@ package controlador;
 
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
-
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -12,16 +11,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Comparator;
-
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
-
 import vista.VistaPrincipal;
 import vista.VistaSecundaria;
 
@@ -145,7 +140,7 @@ public class ControladorActionListener implements ActionListener{
 	    if (e.getSource() == vistaPrincipal.getBotonAZ()) {	
 	    	reproducirSonido(sonidoBoton);
 	    	DefaultTableModel tableModel = vistaPrincipal.getTableModel();   
-    		if (tableModel.getRowCount() > 1) {
+    		if (tableModel.getRowCount() >= 1) {
     			ordenarTablaAlfabeticamente();				
     		}else {
     			reproducirSonido(sonidoAlert);
