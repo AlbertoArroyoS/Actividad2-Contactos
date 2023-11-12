@@ -118,13 +118,13 @@ public class VistaPrincipal extends JFrame{
 		
 		//botonos de guardar y cargar
 		botonGuardar = new JButton("Guardar");
-		botonGuardar.setBounds(20, 260, 150, 30);
+		botonGuardar.setBounds(20, 240, 150, 30);
 		botonGuardar.setBackground(Color.WHITE);
 		botonGuardar.setFont(new Font("Dialog",Font.BOLD,14));
 		background.add(botonGuardar);
 		
 		botonCargar = new JButton("Cargar");
-		botonCargar.setBounds(20, 300, 150, 30);
+		botonCargar.setBounds(20, 280, 150, 30);
 		botonCargar.setBackground(Color.WHITE);
 		botonCargar.setFont(new Font("Dialog",Font.BOLD,14));
 		background.add(botonCargar);
@@ -155,7 +155,7 @@ public class VistaPrincipal extends JFrame{
 	     Image imageSonido = sonidoIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 	     sonidoIcon = new ImageIcon(imageSonido);
 	     botonSonido = new JButton(sonidoIcon);
-	     botonSonido.setBounds(30, 221, 30, 30);
+	     botonSonido.setBounds(20, 320, 30, 30);
 	     botonSonido.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
 	     botonSonido.setBorderPainted(false); // Elimina el borde del botón
 	     background.add(botonSonido);
@@ -165,7 +165,7 @@ public class VistaPrincipal extends JFrame{
 	     Image imageNoSonido = sonidoNoIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 	     sonidoNoIcon = new ImageIcon(imageNoSonido);
 	     botonNoSonido = new JButton(sonidoNoIcon);
-	     botonNoSonido.setBounds(70, 221, 30, 30);
+	     botonNoSonido.setBounds(60, 320, 30, 30);
 	     botonNoSonido.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
 	     botonNoSonido.setBorderPainted(false); // Elimina el borde del botón
 	     background.add(botonNoSonido);

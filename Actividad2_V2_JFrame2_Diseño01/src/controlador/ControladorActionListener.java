@@ -28,8 +28,8 @@ public class ControladorActionListener implements ActionListener{
 	 private VistaPrincipal vistaPrincipal;
 	 private VistaSecundaria vistaSecundaria;
 	 
-	 String sonidoBoton="audio/mouse-click.wav";
-	 String sonidoAlert="audio/windows-error.wav";
+	 String sonidoBoton="audio/no-sonido.wav";
+	 String sonidoAlert="audio/no-sonido.wav";
 
 	 
 	//Inicializar la variable en el constructor
