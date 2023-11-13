@@ -152,7 +152,7 @@ public class VistaSecundaria extends JDialog {
        // Image imageCancel = cancelIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
        // cancelIcon = new ImageIcon(imageCancel);
         
-        FlatSVGIcon svgIconoCancel = new FlatSVGIcon("main/svg/cancel-blanco.svg",30, 30);
+        FlatSVGIcon svgIconoCancel = new FlatSVGIcon("main/svg/cancel2-blanco.svg",30, 30);
         botonCancel = new JButton(svgIconoCancel);
         botonCancel.setBounds(270, 105, 30, 30);
         botonCancel.setContentAreaFilled(false); // Hace que el área del botón no sea pintada

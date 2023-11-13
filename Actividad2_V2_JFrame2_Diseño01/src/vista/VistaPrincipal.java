@@ -179,7 +179,7 @@ public class VistaPrincipal extends JFrame{
 	   // Image imageSonido = sonidoIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 	   // sonidoIcon = new ImageIcon(imageSonido);
 	    
-	    FlatSVGIcon svgIconoSonido = new FlatSVGIcon("main/svg/sound2.svg",30, 30);	    
+	    FlatSVGIcon svgIconoSonido = new FlatSVGIcon("main/svg/sound2-blanco.svg",30, 30);	    
 	    botonSonido = new JButton(svgIconoSonido);
 	    botonSonido.setBounds(20, 320, 30, 30);
 	    botonSonido.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
@@ -191,7 +191,7 @@ public class VistaPrincipal extends JFrame{
 		//ImageIcon sonidoNoIcon = new ImageIcon("img/silencio-naranja.png");
 	    //Image imageNoSonido = sonidoNoIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 	    //sonidoNoIcon = new ImageIcon(imageNoSonido);
-	    FlatSVGIcon svgIconoNoSonido = new FlatSVGIcon("main/svg/mute2.svg",30, 30);	    
+	    FlatSVGIcon svgIconoNoSonido = new FlatSVGIcon("main/svg/mute2-blanco.svg",30, 30);	    
 	    botonNoSonido = new JButton(svgIconoNoSonido);
 	    botonNoSonido.setBounds(60, 320, 30, 30);
 	    botonNoSonido.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
