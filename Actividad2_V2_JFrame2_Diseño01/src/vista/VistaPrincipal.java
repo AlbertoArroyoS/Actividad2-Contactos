@@ -1,6 +1,7 @@
 package vista;
 
 import java.awt.Toolkit;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,6 +17,9 @@ import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.Image;
 import java.io.IOException;
+import com.formdev.flatlaf.extras.FlatSVGIcon;
+import java.util.function.Function;
+
 
 /**
  * Clase que representa la vista principal de la aplicacion de contactos.
@@ -45,6 +49,8 @@ public class VistaPrincipal extends JFrame{
 	private DefaultTableModel tableModel;
 	//contenedor con scroll
 	private JScrollPane scrollPane;
+	//svg icono
+	private FlatSVGIcon svgIcono;
 
 	
 	//Constructor para inicializar las variables
@@ -154,13 +160,19 @@ public class VistaPrincipal extends JFrame{
 	*/
 	
 		//crear el ICONO **********ESTE QUE REDIMENSIONA IMAGEN
-	
-		
+		icono = new JLabel();
+		svgIcono = new FlatSVGIcon("main/clasificar4.svg",80, 80);
+		icono.setIcon(svgIcono);
+		icono.setLocation(55, 9);
+		icono.setSize(80, 80);
+		//añadir el icono al panel
+		background.add(icono);
+		/*
 		Image img = new ImageIcon("img/agenda6-512.png").getImage();
 		icono = new JLabel(new ImageIcon(img.getScaledInstance(80, 80, Image.SCALE_SMOOTH)));
 		icono.setBounds(55, 9, 80, 80);
 		background.add(icono);
-		
+		*/
 		ImageIcon sonidoIcon = new ImageIcon("img/altavoz.png");
 	    Image imageSonido = sonidoIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 	    sonidoIcon = new ImageIcon(imageSonido);
@@ -197,9 +209,18 @@ public class VistaPrincipal extends JFrame{
 	      * PRUEBAS PARA USAR SVG
 	      * 
 	      * */
-	     
-	
-		
+	   /*  
+	    FlatSVGIcon svgOrdenar = new FlatSVGIcon("img/clasificar4.svg",30, 30);
+	    
+	    botonAZ = new JButton(svgOrdenar);
+	    
+	    botonAZ.setBounds(160, 50, 30, 30);
+	    botonAZ.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
+	    botonAZ.setBorderPainted(false); // Elimina el borde del botón
+	    botonAZ.setCursor(new Cursor(Cursor.HAND_CURSOR)); // ponemos el cursor de la mano al pasar por el boton
+	    background.add(botonAZ);
+	    
+		*/
 		
 		//Cambiar la fuente de la ventana
 		
@@ -256,6 +277,12 @@ public class VistaPrincipal extends JFrame{
 	public int obtenerFilaSeleccionada() {
 		return tablaContactos.getSelectedRow();
 	}
+	
+	public void setSvgImage(String image, int width, int height) {
+        svgIcono = new FlatSVGIcon(image, width, height);
+      //  setIconImage(svgIcono);
+    }
+	
 	
 	
 	//getters y setters de los botones para acceder a ellos desde el controlador
