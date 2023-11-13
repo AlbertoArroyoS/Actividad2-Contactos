@@ -173,7 +173,7 @@ public class VistaPrincipal extends JFrame{
 	     botonNoSonido.setBorderPainted(false); // Elimina el borde del botón
 	     background.add(botonNoSonido);
 	     
-	     ImageIcon iconoOrdenar = new ImageIcon("img/clasificar2.png");
+	     ImageIcon iconoOrdenar = new ImageIcon("img/clasificar3.png");
 	     Image imageOrdenar = iconoOrdenar.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 	     iconoOrdenar = new ImageIcon(imageOrdenar);
 	     botonAZ = new JButton(iconoOrdenar);
