@@ -1,7 +1,7 @@
 package vista;
 
 import java.awt.Color;
-
+import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -140,6 +140,7 @@ public class VistaSecundaria extends JDialog {
         botonOk.setBounds(180, 105, 30, 30);
         botonOk.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
         botonOk.setBorderPainted(false); // Elimina el borde del botón
+        botonOk.setCursor(new Cursor(Cursor.HAND_CURSOR)); // ponemos el cursor de la mano al pasar por el boton
         botonOk.addActionListener(controlador);
         background.add(botonOk);
         
@@ -151,6 +152,7 @@ public class VistaSecundaria extends JDialog {
         botonCancel.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
         botonCancel.setBorderPainted(false); // Elimina el borde del botón
         botonCancel.setBackground(Color.WHITE);
+        botonCancel.setCursor(new Cursor(Cursor.HAND_CURSOR)); // ponemos el cursor de la mano al pasar por el boton
         botonCancel.addActionListener(controlador);
         background.add(botonCancel);
     }

@@ -11,6 +11,7 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 import controlador.ControladorActionListener;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.Image;
@@ -105,18 +106,21 @@ public class VistaPrincipal extends JFrame{
 		botonAdd.setBounds(20, 100, 150, 30);
 		botonAdd.setBackground(Color.WHITE);
 		botonAdd.setFont(new Font("Dialog",Font.BOLD,13));
+		botonAdd.setCursor(new Cursor(Cursor.HAND_CURSOR)); // ponemos el cursor de la mano al pasar por el boton
 		background.add(botonAdd);
 		
 		botonDelete = new JButton("Eliminar contacto");
 		botonDelete.setBounds(20, 180, 150, 30);
 		botonDelete.setBackground(Color.WHITE);
 		botonDelete.setFont(new Font("Dialog",Font.BOLD,13));
+		botonDelete.setCursor(new Cursor(Cursor.HAND_CURSOR)); // ponemos el cursor de la mano al pasar por el boton
 		background.add(botonDelete);
 		
 		botonEdit = new JButton("Editar contacto");
 		botonEdit.setBounds(20, 140, 150, 30);
 		botonEdit.setBackground(Color.WHITE);
 		botonEdit.setFont(new Font("Dialog",Font.BOLD,13));
+		botonEdit.setCursor(new Cursor(Cursor.HAND_CURSOR)); // ponemos el cursor de la mano al pasar por el boton
 		background.add(botonEdit);
 		
 		//botonos de guardar y cargar
@@ -124,12 +128,14 @@ public class VistaPrincipal extends JFrame{
 		botonGuardar.setBounds(20, 240, 150, 30);
 		botonGuardar.setBackground(Color.WHITE);
 		botonGuardar.setFont(new Font("Dialog",Font.BOLD,14));
+		botonGuardar.setCursor(new Cursor(Cursor.HAND_CURSOR)); // ponemos el cursor de la mano al pasar por el boton
 		background.add(botonGuardar);
 		
 		botonCargar = new JButton("Cargar");
 		botonCargar.setBounds(20, 280, 150, 30);
 		botonCargar.setBackground(Color.WHITE);
 		botonCargar.setFont(new Font("Dialog",Font.BOLD,14));
+		botonCargar.setCursor(new Cursor(Cursor.HAND_CURSOR)); // ponemos el cursor de la mano al pasar por el boton
 		background.add(botonCargar);
 		
 
@@ -148,40 +154,44 @@ public class VistaPrincipal extends JFrame{
 	*/
 	
 		//crear el ICONO **********ESTE QUE REDIMENSIONA IMAGEN
+	
 		
 		Image img = new ImageIcon("img/agenda6-512.png").getImage();
 		icono = new JLabel(new ImageIcon(img.getScaledInstance(80, 80, Image.SCALE_SMOOTH)));
 		icono.setBounds(55, 9, 80, 80);
 		background.add(icono);
 		
-		 ImageIcon sonidoIcon = new ImageIcon("img/altavoz.png");
-	     Image imageSonido = sonidoIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-	     sonidoIcon = new ImageIcon(imageSonido);
-	     botonSonido = new JButton(sonidoIcon);
-	     botonSonido.setBounds(20, 320, 30, 30);
-	     botonSonido.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
-	     botonSonido.setBorderPainted(false); // Elimina el borde del botón
-	     background.add(botonSonido);
+		ImageIcon sonidoIcon = new ImageIcon("img/altavoz.png");
+	    Image imageSonido = sonidoIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+	    sonidoIcon = new ImageIcon(imageSonido);
+	    botonSonido = new JButton(sonidoIcon);
+	    botonSonido.setBounds(20, 320, 30, 30);
+	    botonSonido.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
+	    botonSonido.setBorderPainted(false); // Elimina el borde del botón
+	    botonSonido.setCursor(new Cursor(Cursor.HAND_CURSOR)); // ponemos el cursor de la mano al pasar por el boton
+	    background.add(botonSonido);
 	     
-
-		 ImageIcon sonidoNoIcon = new ImageIcon("img/silencio-naranja.png");
-	     Image imageNoSonido = sonidoNoIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-	     sonidoNoIcon = new ImageIcon(imageNoSonido);
-	     botonNoSonido = new JButton(sonidoNoIcon);
-	     botonNoSonido.setBounds(60, 320, 30, 30);
-	     botonNoSonido.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
-	     botonNoSonido.setBorderPainted(false); // Elimina el borde del botón
-	     background.add(botonNoSonido);
+	
+		ImageIcon sonidoNoIcon = new ImageIcon("img/silencio-naranja.png");
+	    Image imageNoSonido = sonidoNoIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+	    sonidoNoIcon = new ImageIcon(imageNoSonido);
+	    botonNoSonido = new JButton(sonidoNoIcon);
+	    botonNoSonido.setBounds(60, 320, 30, 30);
+	    botonNoSonido.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
+	    botonNoSonido.setBorderPainted(false); // Elimina el borde del botón
+	    botonNoSonido.setCursor(new Cursor(Cursor.HAND_CURSOR)); // ponemos el cursor de la mano al pasar por el boton
+	    background.add(botonNoSonido);
 	     
 	  
-	     ImageIcon iconoOrdenar = new ImageIcon("img/clasificar2.png");
-	     Image imageOrdenar = iconoOrdenar.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-	     iconoOrdenar = new ImageIcon(imageOrdenar);
-	     botonAZ = new JButton(iconoOrdenar);
-	     botonAZ.setBounds(160, 50, 30, 30);
-	     botonAZ.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
-	     botonAZ.setBorderPainted(false); // Elimina el borde del botón
-	     background.add(botonAZ);
+	    ImageIcon iconoOrdenar = new ImageIcon("img/clasificar2.png");
+	    Image imageOrdenar = iconoOrdenar.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+	    iconoOrdenar = new ImageIcon(imageOrdenar);
+	    botonAZ = new JButton(iconoOrdenar);
+	    botonAZ.setBounds(160, 50, 30, 30);
+	    botonAZ.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
+	    botonAZ.setBorderPainted(false); // Elimina el borde del botón
+	    botonAZ.setCursor(new Cursor(Cursor.HAND_CURSOR)); // ponemos el cursor de la mano al pasar por el boton
+	    background.add(botonAZ);
 	     
 	     /* 
 	      * PRUEBAS PARA USAR SVG
