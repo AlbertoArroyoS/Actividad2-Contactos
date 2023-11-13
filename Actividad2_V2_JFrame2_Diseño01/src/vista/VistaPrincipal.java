@@ -144,7 +144,6 @@ public class VistaPrincipal extends JFrame{
 		botonCargar.setCursor(new Cursor(Cursor.HAND_CURSOR)); // ponemos el cursor de la mano al pasar por el boton
 		background.add(botonCargar);
 		
-
 		/*
 		
 		//crear el componente
@@ -158,9 +157,20 @@ public class VistaPrincipal extends JFrame{
 		//añadir el icono al panel
 		background.add(icono);
 	*/
-	
+		
+		/*
+		Image img = new ImageIcon("img/agenda6-512.png").getImage();
+		icono = new JLabel(new ImageIcon(img.getScaledInstance(80, 80, Image.SCALE_SMOOTH)));
+		icono.setBounds(55, 9, 80, 80);
+		background.add(icono);
+		
+		ImageIcon sonidoIcon = new ImageIcon("img/altavoz.png");
+	   	Image imageSonido = sonidoIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+	   	sonidoIcon = new ImageIcon(imageSonido);
+	    */
+		
 		//crear el ICONO **********SVG
-		//icono = new JLabel();
+
 		FlatSVGIcon svgIcono = new FlatSVGIcon("main/svg/agenda3-blanco.svg",80, 80);
 		icono = new JLabel(svgIcono);
 	//	icono.setIcon(svgIcono);
@@ -169,16 +179,6 @@ public class VistaPrincipal extends JFrame{
 		//añadir el icono al panel
 		background.add(icono);
 		
-		/*
-		Image img = new ImageIcon("img/agenda6-512.png").getImage();
-		icono = new JLabel(new ImageIcon(img.getScaledInstance(80, 80, Image.SCALE_SMOOTH)));
-		icono.setBounds(55, 9, 80, 80);
-		background.add(icono);
-		*/
-		//ImageIcon sonidoIcon = new ImageIcon("img/altavoz.png");
-	   // Image imageSonido = sonidoIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-	   // sonidoIcon = new ImageIcon(imageSonido);
-	    
 	    FlatSVGIcon svgIconoSonido = new FlatSVGIcon("main/svg/sound2-blanco.svg",30, 30);	    
 	    botonSonido = new JButton(svgIconoSonido);
 	    botonSonido.setBounds(20, 320, 30, 30);
@@ -210,24 +210,7 @@ public class VistaPrincipal extends JFrame{
 	    botonAZ.setCursor(new Cursor(Cursor.HAND_CURSOR)); // ponemos el cursor de la mano al pasar por el boton
 	    background.add(botonAZ);
 	  
-	     /* 
-	      * PRUEBAS PARA USAR SVG
-	      * 
-	      * */
-	   /*  
-	    FlatSVGIcon svgOrdenar = new FlatSVGIcon("img/clasificar4.svg",30, 30);
-	    
-	    botonAZ = new JButton(svgOrdenar);
-	    
-	    botonAZ.setBounds(160, 50, 30, 30);
-	    botonAZ.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
-	    botonAZ.setBorderPainted(false); // Elimina el borde del botón
-	    botonAZ.setCursor(new Cursor(Cursor.HAND_CURSOR)); // ponemos el cursor de la mano al pasar por el boton
-	    background.add(botonAZ);
-	    
-		*/
-	  //  FlatSVGIcon svgIconoAz = new FlatSVGIcon("main/svg/clasificar4.svg",80, 80);
-	    
+    
 		
 		//Cambiar la fuente de la ventana
 		
