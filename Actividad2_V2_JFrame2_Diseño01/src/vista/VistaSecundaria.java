@@ -1,6 +1,7 @@
 package vista;
 
 import java.awt.Color;
+
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.Image;
@@ -18,6 +19,7 @@ import javax.swing.JTextField;
 import controlador.ControladorActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import com.formdev.flatlaf.extras.FlatSVGIcon;
 /**
  * Clase que representa una ventana secundaria para agregar contactos.
  *
@@ -133,10 +135,12 @@ public class VistaSecundaria extends JDialog {
         background.add(campoTelefono);
         
      // Asignar imagen al botón Ok
-        ImageIcon okIcon = new ImageIcon("img/ok512.png");
-        Image imageOk = okIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-        okIcon = new ImageIcon(imageOk);
-        botonOk = new JButton(okIcon);
+    //  ImageIcon okIcon = new ImageIcon("img/ok512.png");
+    //  Image imageOk = okIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+    //  okIcon = new ImageIcon(imageOk);
+        
+        FlatSVGIcon svgIconoOk = new FlatSVGIcon("main/svg/ok-blanco.svg",30, 30);
+        botonOk = new JButton(svgIconoOk);
         botonOk.setBounds(180, 105, 30, 30);
         botonOk.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
         botonOk.setBorderPainted(false); // Elimina el borde del botón
@@ -144,10 +148,12 @@ public class VistaSecundaria extends JDialog {
         botonOk.addActionListener(controlador);
         background.add(botonOk);
         
-        ImageIcon cancelIcon = new ImageIcon("img/cancelar512.png");
-        Image imageCancel = cancelIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-        cancelIcon = new ImageIcon(imageCancel);
-        botonCancel = new JButton(cancelIcon);
+        //ImageIcon cancelIcon = new ImageIcon("img/cancelar512.png");
+       // Image imageCancel = cancelIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+       // cancelIcon = new ImageIcon(imageCancel);
+        
+        FlatSVGIcon svgIconoCancel = new FlatSVGIcon("main/svg/cancel-blanco.svg",30, 30);
+        botonCancel = new JButton(svgIconoCancel);
         botonCancel.setBounds(270, 105, 30, 30);
         botonCancel.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
         botonCancel.setBorderPainted(false); // Elimina el borde del botón

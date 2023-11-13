@@ -161,7 +161,7 @@ public class VistaPrincipal extends JFrame{
 	
 		//crear el ICONO **********SVG
 		//icono = new JLabel();
-		FlatSVGIcon svgIcono = new FlatSVGIcon("main/svg/agenda6-512.svg",80, 80);
+		FlatSVGIcon svgIcono = new FlatSVGIcon("main/svg/agenda3-blanco.svg",80, 80);
 		icono = new JLabel(svgIcono);
 	//	icono.setIcon(svgIcono);
 		icono.setLocation(55, 9);
@@ -175,10 +175,12 @@ public class VistaPrincipal extends JFrame{
 		icono.setBounds(55, 9, 80, 80);
 		background.add(icono);
 		*/
-		ImageIcon sonidoIcon = new ImageIcon("img/altavoz.png");
-	    Image imageSonido = sonidoIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-	    sonidoIcon = new ImageIcon(imageSonido);
-	    botonSonido = new JButton(sonidoIcon);
+		//ImageIcon sonidoIcon = new ImageIcon("img/altavoz.png");
+	   // Image imageSonido = sonidoIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+	   // sonidoIcon = new ImageIcon(imageSonido);
+	    
+	    FlatSVGIcon svgIconoSonido = new FlatSVGIcon("main/svg/sound2.svg",30, 30);	    
+	    botonSonido = new JButton(svgIconoSonido);
 	    botonSonido.setBounds(20, 320, 30, 30);
 	    botonSonido.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
 	    botonSonido.setBorderPainted(false); // Elimina el borde del botón
@@ -186,10 +188,11 @@ public class VistaPrincipal extends JFrame{
 	    background.add(botonSonido);
 	     
 	
-		ImageIcon sonidoNoIcon = new ImageIcon("img/silencio-naranja.png");
-	    Image imageNoSonido = sonidoNoIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-	    sonidoNoIcon = new ImageIcon(imageNoSonido);
-	    botonNoSonido = new JButton(sonidoNoIcon);
+		//ImageIcon sonidoNoIcon = new ImageIcon("img/silencio-naranja.png");
+	    //Image imageNoSonido = sonidoNoIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+	    //sonidoNoIcon = new ImageIcon(imageNoSonido);
+	    FlatSVGIcon svgIconoNoSonido = new FlatSVGIcon("main/svg/mute2.svg",30, 30);	    
+	    botonNoSonido = new JButton(svgIconoNoSonido);
 	    botonNoSonido.setBounds(60, 320, 30, 30);
 	    botonNoSonido.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
 	    botonNoSonido.setBorderPainted(false); // Elimina el borde del botón
@@ -199,7 +202,7 @@ public class VistaPrincipal extends JFrame{
 	
 	    //ImageIcon iconoOrdenar = new ImageIcon("img/clasificar2.png");
 	   // Image imageOrdenar = iconoOrdenar.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-	    FlatSVGIcon svgIconoAz = new FlatSVGIcon("main/svg/clasificar5.svg",30, 30);
+	    FlatSVGIcon svgIconoAz = new FlatSVGIcon("main/svg/clasificar5-blanco.svg",30, 30);
 	    botonAZ = new JButton(svgIconoAz);
 	    botonAZ.setBounds(160, 50, 30, 30);
 	    botonAZ.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
