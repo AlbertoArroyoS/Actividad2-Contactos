@@ -2,6 +2,7 @@ package vista;
 
 import java.awt.Toolkit;
 
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -24,6 +25,7 @@ import com.formdev.flatlaf.extras.FlatSVGIcon;
 /**
  * Clase que representa la vista principal de la aplicacion de contactos.
  * Extiende JFrame y contiene elementos como botones, una tabla y otros componentes visuales.
+ * Utiliza la libreria externa FlatLaf library para poder usar imagenes svg para los iconos.
  * Proporciona metodos para obtener informacion de la interfaz y establecer listeners al controlador.
  * 
  * @author Alberto Arroyo Santofimia
@@ -133,14 +135,14 @@ public class VistaPrincipal extends JFrame{
 		botonGuardar = new JButton("Guardar");
 		botonGuardar.setBounds(20, 240, 150, 30);
 		botonGuardar.setBackground(Color.WHITE);
-		botonGuardar.setFont(new Font("Dialog",Font.BOLD,14));
+		botonGuardar.setFont(new Font("Dialog",Font.BOLD,13));
 		botonGuardar.setCursor(new Cursor(Cursor.HAND_CURSOR)); // ponemos el cursor de la mano al pasar por el boton
 		background.add(botonGuardar);
 		
 		botonCargar = new JButton("Cargar");
 		botonCargar.setBounds(20, 280, 150, 30);
 		botonCargar.setBackground(Color.WHITE);
-		botonCargar.setFont(new Font("Dialog",Font.BOLD,14));
+		botonCargar.setFont(new Font("Dialog",Font.BOLD,13));
 		botonCargar.setCursor(new Cursor(Cursor.HAND_CURSOR)); // ponemos el cursor de la mano al pasar por el boton
 		background.add(botonCargar);
 		

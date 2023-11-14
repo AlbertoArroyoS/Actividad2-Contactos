@@ -26,6 +26,7 @@ import com.formdev.flatlaf.extras.FlatSVGIcon;
  * Esta clase hereda de JDialog y contiene elementos como etiquetas, campos de texto y botones.
  * Los campos de texto permiten la entrada de informacion del usuario, mientras que los botones
  * ofrecen opciones para confirmar o cancelar la accion.
+ * Utiliza la libreria externa FlatLaf library para poder usar imagenes svg para los iconos.
  *
  * @author Alberto Arroyo Santofimia
  * @see JDialog
