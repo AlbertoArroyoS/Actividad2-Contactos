@@ -64,10 +64,14 @@ public class ControladorMouseListener implements MouseListener{
 			vistaPrincipal.getBotonCargar().setBackground(Color.LIGHT_GRAY);
 		}
 		if (e.getSource() == vistaPrincipal.getBotonSonido()) {
-			vistaPrincipal.getBotonSonido().setBackground(Color.LIGHT_GRAY);
+			FlatSVGIcon svgIconoSonido = new FlatSVGIcon("main/svg/sound2.svg",30, 30);
+			vistaPrincipal.getBotonSonido().setIcon(svgIconoSonido);
+			vistaPrincipal.getBotonSonido().setContentAreaFilled(true);
 		}
 		if (e.getSource() == vistaPrincipal.getBotonNoSonido()) {
-			vistaPrincipal.getBotonNoSonido().setBackground(Color.LIGHT_GRAY);
+			FlatSVGIcon svgIconoNoSonido = new FlatSVGIcon("main/svg/mute2.svg",30, 30);
+			vistaPrincipal.getBotonNoSonido().setIcon(svgIconoNoSonido);
+			vistaPrincipal.getBotonNoSonido().setContentAreaFilled(true);
 		}
 		if (e.getSource() == vistaPrincipal.getBotonAZ()) {
 			//vistaPrincipal.getBotonAZ().setSize(50, 50);
@@ -102,10 +106,14 @@ public class ControladorMouseListener implements MouseListener{
 			vistaPrincipal.getBotonCargar().setBackground(Color.WHITE);
 		}
 		if (e.getSource() == vistaPrincipal.getBotonSonido()) {
-			vistaPrincipal.getBotonSonido().setBackground(Color.WHITE);
+			FlatSVGIcon svgIconoSonido = new FlatSVGIcon("main/svg/sound2-blanco.svg",30, 30);
+			vistaPrincipal.getBotonSonido().setIcon(svgIconoSonido);
+			vistaPrincipal.getBotonSonido().setContentAreaFilled(false);
 		}
 		if (e.getSource() == vistaPrincipal.getBotonNoSonido()) {
-			vistaPrincipal.getBotonNoSonido().setBackground(Color.WHITE);
+			FlatSVGIcon svgIconoNoSonido = new FlatSVGIcon("main/svg/mute2-blanco.svg",30, 30);
+			vistaPrincipal.getBotonNoSonido().setIcon(svgIconoNoSonido);
+			vistaPrincipal.getBotonNoSonido().setContentAreaFilled(false);
 		}
 		if (e.getSource() == vistaPrincipal.getBotonAZ()) {
 			//vistaPrincipal.getBotonAZ().setSize(30, 30);
