@@ -48,6 +48,33 @@ public class ControladorMouseListener implements MouseListener{
 		if (e.getSource() == vistaPrincipal.getBotonAdd()) {
 			vistaPrincipal.getBotonAdd().setBackground(Color.BLUE);
 		}
+		if (e.getSource() == vistaPrincipal.getBotonEdit()) {
+			vistaPrincipal.getBotonAdd().setBackground(Color.BLUE);
+		}
+		if (e.getSource() == vistaPrincipal.getBotonDelete()) {
+			vistaPrincipal.getBotonAdd().setBackground(Color.BLUE);
+		}
+		if (e.getSource() == vistaPrincipal.getBotonGuardar()) {
+			vistaPrincipal.getBotonAdd().setBackground(Color.BLUE);
+		}
+		if (e.getSource() == vistaPrincipal.getBotonCargar()) {
+			vistaPrincipal.getBotonAdd().setBackground(Color.BLUE);
+		}
+		if (e.getSource() == vistaPrincipal.getBotonSonido()) {
+			vistaPrincipal.getBotonAdd().setBackground(Color.BLUE);
+		}
+		if (e.getSource() == vistaPrincipal.getBotonNoSonido()) {
+			vistaPrincipal.getBotonAdd().setBackground(Color.BLUE);
+		}
+		if (e.getSource() == vistaPrincipal.getBotonAZ()) {
+			vistaPrincipal.getBotonAdd().setBackground(Color.BLUE);
+		}
+		if (e.getSource() == vistaSecundaria.getBotonOk()) {
+			vistaPrincipal.getBotonAdd().setBackground(Color.BLUE);
+		}
+		if (e.getSource() == vistaSecundaria.getBotonCancel()) {
+			vistaPrincipal.getBotonAdd().setBackground(Color.BLUE);
+		}
 		
 	}
 
