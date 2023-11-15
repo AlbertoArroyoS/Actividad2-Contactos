@@ -1,7 +1,7 @@
 package vista;
 
 import java.awt.Toolkit;
-
+import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -12,6 +12,8 @@ import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 import controlador.ControladorActionListener;
+import controlador.ControladorMouseListener;
+
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
@@ -261,6 +263,21 @@ public class VistaPrincipal extends JFrame{
 		botonSonido.addActionListener(controlador);
 		botonNoSonido.addActionListener(controlador);
 		botonAZ.addActionListener(controlador);
+		
+	}
+	
+	
+	public void establecerMouseListener(ControladorMouseListener controlador) {
+		
+		botonAdd.addMouseListener(controlador);
+		botonEdit.addMouseListener(controlador);
+		botonDelete.addMouseListener(controlador);
+		botonGuardar.addMouseListener(controlador);
+		botonCargar.addMouseListener(controlador);
+		botonSonido.addMouseListener(controlador);
+		botonNoSonido.addMouseListener(controlador);
+		botonAZ.addMouseListener(controlador);
+		
 	}
 	
 		//Obtener la fila seleccionada

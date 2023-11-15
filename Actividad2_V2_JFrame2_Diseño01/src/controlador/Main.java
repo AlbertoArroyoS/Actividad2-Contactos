@@ -22,8 +22,10 @@ public class Main {
 		VistaPrincipal vista = new VistaPrincipal();
 		//crear el controlador del Boton, y comunicar el controlador con la vista
 		ControladorActionListener controlador = new ControladorActionListener(vista);
+		ControladorMouseListener controladorMouse = new ControladorMouseListener(vista);
 		//llamamos al metodo de los listeners
 		vista.establecerListeners(controlador);
+		vista.establecerMouseListener(controladorMouse);
 
 		
 	}
