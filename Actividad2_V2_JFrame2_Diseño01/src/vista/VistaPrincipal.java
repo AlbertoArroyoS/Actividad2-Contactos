@@ -210,6 +210,8 @@ public class VistaPrincipal extends JFrame{
 	    botonAZ.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
 	    botonAZ.setBorderPainted(false); // Elimina el borde del botón
 	    botonAZ.setCursor(new Cursor(Cursor.HAND_CURSOR)); // ponemos el cursor de la mano al pasar por el boton
+	    //Quitar el foco al boton cuando arranca la aplicacion
+	    botonAZ.setFocusable(false);
 	    background.add(botonAZ);
 	  
     
