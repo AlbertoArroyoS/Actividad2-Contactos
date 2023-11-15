@@ -191,8 +191,8 @@ public class ControladorActionListener implements ActionListener{
 		               null,
 		               new Object[]{"Aceptar"},  // Añadimos un botón "Aceptar"
 		               "Aceptar");
-		       
-		       
+		       vistaSecundaria.getCampoNombre().requestFocus();
+   
 		 } else if (telefono.isEmpty()) {
 			 reproducirSonido(sonidoAlert);
 		     //   JOptionPane.showMessageDialog(null, "Teléfono está vacío", "Aviso", JOptionPane.INFORMATION_MESSAGE);
@@ -204,6 +204,7 @@ public class ControladorActionListener implements ActionListener{
 			               null,
 			               new Object[]{"Aceptar"},  // Añadimos un botón "Aceptar"
 			               "Aceptar");
+		        vistaSecundaria.getCampoTelefono().requestFocus();
 		 }else if(telefono.length()<9){
 			 reproducirSonido(sonidoAlert);
 			 JOptionPane.showOptionDialog(vistaPrincipal,
@@ -214,6 +215,7 @@ public class ControladorActionListener implements ActionListener{
 		               null,
 		               new Object[]{"Aceptar"},  // Añadimos un botón "Aceptar"
 		               "Aceptar");
+			 vistaSecundaria.getCampoTelefono().requestFocus();
 			 
 		 }else {
 		    	 DefaultTableModel tableModel = vistaPrincipal.getTableModel();
@@ -259,9 +261,11 @@ public class ControladorActionListener implements ActionListener{
 	    	if(nombreEditado.isEmpty()){
 	    		reproducirSonido(sonidoAlert);
 	    		JOptionPane.showMessageDialog(vistaPrincipal,"Nombre esta vacio", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+	    		vistaSecundaria.getCampoNombre().requestFocus();
 	    	}else if(telefonoEditado.isEmpty()){
 	    		reproducirSonido(sonidoAlert);
 	    		JOptionPane.showMessageDialog(vistaPrincipal,"Telefono esta vacio", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+	    		vistaSecundaria.getCampoTelefono().requestFocus();
 	    	}else if(telefonoEditado.length()<9){
 	    		reproducirSonido(sonidoAlert);
 				 JOptionPane.showOptionDialog(vistaPrincipal,
@@ -272,6 +276,7 @@ public class ControladorActionListener implements ActionListener{
 			               null,
 			               new Object[]{"Aceptar"},  // Añadimos un botón "Aceptar"
 			               "Aceptar");
+				 vistaSecundaria.getCampoTelefono().requestFocus();
 				 
 			 }else {
 	    		DefaultTableModel tableModel = vistaPrincipal.getTableModel();
