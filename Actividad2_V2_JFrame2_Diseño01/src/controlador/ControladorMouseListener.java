@@ -1,12 +1,15 @@
 package controlador;
 
 import java.awt.Color;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+
+import com.formdev.flatlaf.extras.FlatSVGIcon;
 
 import vista.VistaPrincipal;
 import vista.VistaSecundaria;
@@ -46,41 +49,76 @@ public class ControladorMouseListener implements MouseListener{
 	public void mouseEntered(MouseEvent e) {
 		
 		if (e.getSource() == vistaPrincipal.getBotonAdd()) {
-			vistaPrincipal.getBotonAdd().setBackground(Color.BLUE);
+			vistaPrincipal.getBotonAdd().setBackground(Color.LIGHT_GRAY);
 		}
 		if (e.getSource() == vistaPrincipal.getBotonEdit()) {
-			vistaPrincipal.getBotonAdd().setBackground(Color.BLUE);
+			vistaPrincipal.getBotonEdit().setBackground(Color.LIGHT_GRAY);
 		}
 		if (e.getSource() == vistaPrincipal.getBotonDelete()) {
-			vistaPrincipal.getBotonAdd().setBackground(Color.BLUE);
+			vistaPrincipal.getBotonDelete().setBackground(Color.LIGHT_GRAY);
 		}
 		if (e.getSource() == vistaPrincipal.getBotonGuardar()) {
-			vistaPrincipal.getBotonAdd().setBackground(Color.BLUE);
+			vistaPrincipal.getBotonGuardar().setBackground(Color.LIGHT_GRAY);
 		}
 		if (e.getSource() == vistaPrincipal.getBotonCargar()) {
-			vistaPrincipal.getBotonAdd().setBackground(Color.BLUE);
+			vistaPrincipal.getBotonCargar().setBackground(Color.LIGHT_GRAY);
 		}
 		if (e.getSource() == vistaPrincipal.getBotonSonido()) {
-			vistaPrincipal.getBotonAdd().setBackground(Color.BLUE);
+			vistaPrincipal.getBotonSonido().setBackground(Color.LIGHT_GRAY);
 		}
 		if (e.getSource() == vistaPrincipal.getBotonNoSonido()) {
-			vistaPrincipal.getBotonAdd().setBackground(Color.BLUE);
+			vistaPrincipal.getBotonNoSonido().setBackground(Color.LIGHT_GRAY);
 		}
 		if (e.getSource() == vistaPrincipal.getBotonAZ()) {
-			vistaPrincipal.getBotonAdd().setBackground(Color.BLUE);
+			//vistaPrincipal.getBotonAZ().setSize(50, 50);
+			FlatSVGIcon svgIconoAz = new FlatSVGIcon("main/svg/clasificar5.svg",30, 30);
+			vistaPrincipal.getBotonAZ().setIcon(svgIconoAz);
+			vistaPrincipal.getBotonAZ().setContentAreaFilled(true);
 		}
-		if (e.getSource() == vistaSecundaria.getBotonOk()) {
-			vistaPrincipal.getBotonAdd().setBackground(Color.BLUE);
+		if (vistaSecundaria != null && e.getSource() == vistaSecundaria.getBotonOk()) {
+			vistaSecundaria.getBotonOk().setBackground(Color.BLUE);
 		}
-		if (e.getSource() == vistaSecundaria.getBotonCancel()) {
-			vistaPrincipal.getBotonAdd().setBackground(Color.BLUE);
+		if (vistaSecundaria != null && e.getSource() == vistaSecundaria.getBotonCancel()) {
+			vistaSecundaria.getBotonCancel().setBackground(Color.BLUE);
 		}
 		
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
+		if (e.getSource() == vistaPrincipal.getBotonAdd()) {
+			vistaPrincipal.getBotonAdd().setBackground(Color.WHITE);
+		}
+		if (e.getSource() == vistaPrincipal.getBotonEdit()) {
+			vistaPrincipal.getBotonEdit().setBackground(Color.WHITE);
+		}
+		if (e.getSource() == vistaPrincipal.getBotonDelete()) {
+			vistaPrincipal.getBotonDelete().setBackground(Color.WHITE);
+		}
+		if (e.getSource() == vistaPrincipal.getBotonGuardar()) {
+			vistaPrincipal.getBotonGuardar().setBackground(Color.WHITE);
+		}
+		if (e.getSource() == vistaPrincipal.getBotonCargar()) {
+			vistaPrincipal.getBotonCargar().setBackground(Color.WHITE);
+		}
+		if (e.getSource() == vistaPrincipal.getBotonSonido()) {
+			vistaPrincipal.getBotonSonido().setBackground(Color.WHITE);
+		}
+		if (e.getSource() == vistaPrincipal.getBotonNoSonido()) {
+			vistaPrincipal.getBotonNoSonido().setBackground(Color.WHITE);
+		}
+		if (e.getSource() == vistaPrincipal.getBotonAZ()) {
+			//vistaPrincipal.getBotonAZ().setSize(30, 30);
+			FlatSVGIcon svgIconoAz = new FlatSVGIcon("main/svg/clasificar5-blanco.svg",30, 30);
+			vistaPrincipal.getBotonAZ().setIcon(svgIconoAz);
+			vistaPrincipal.getBotonAZ().setContentAreaFilled(false);
+		}
+		if (vistaSecundaria != null && e.getSource() == vistaSecundaria.getBotonOk()) {
+			vistaSecundaria.getBotonOk().setBackground(Color.WHITE);
+		}
+		if (vistaSecundaria != null && e.getSource() == vistaSecundaria.getBotonCancel()) {
+			vistaSecundaria.getBotonCancel().setBackground(Color.WHITE);
+		}
 		
 	}
 	
