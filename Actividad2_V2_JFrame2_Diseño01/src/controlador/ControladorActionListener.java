@@ -19,6 +19,9 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+
+import com.formdev.flatlaf.extras.FlatSVGIcon;
+
 import vista.VistaPrincipal;
 import vista.VistaSecundaria;
 
@@ -151,16 +154,23 @@ public class ControladorActionListener implements ActionListener{
 	    }
 	    // Al pulsar un botón para cambiar el sonido
 	    if (e.getSource() == vistaPrincipal.getBotonSonido()) {
-	    	reproducirSonido(sonidoBoton);
+	    	vistaPrincipal.getBotonSonido().setFocusable(false);
+	    	if(sonidoBoton.equals(sonidoAlert)) {
+	    		FlatSVGIcon svgIconoSonido = new FlatSVGIcon("main/svg/sound2.svg",30, 30);
+				vistaPrincipal.getBotonSonido().setIcon(svgIconoSonido);
+	    		sonidoBoton ="audio/mouse-click.wav";
+		   	 	sonidoAlert="audio/windows-error.wav";
+		   	 	reproducirSonido(sonidoBoton);
+		   	 	
+	    	}else{
+	    		sonidoBoton ="audio/no-sonido.wav";
+		   	 	sonidoAlert="audio/no-sonido.wav";
+		   	 	FlatSVGIcon svgIconoNoSonido = new FlatSVGIcon("main/svg/mute2.svg",30, 30);
+				vistaPrincipal.getBotonSonido().setIcon(svgIconoNoSonido);	
+	    	}  	
 	    	
-	    	sonidoBoton ="audio/mouse-click.wav";
-	   	 	sonidoAlert="audio/windows-error.wav";
 	    }
-	    // Al pulsar un botón para desactivar el sonido
-	    if (e.getSource() == vistaPrincipal.getBotonNoSonido()) {	
-	    	sonidoBoton ="audio/no-sonido.wav";
-	   	 	sonidoAlert="audio/no-sonido.wav";
-	    }
+
         // Al pulsar un botón para ordenar alfabéticamente la tabla
 	    if (e.getSource() == vistaPrincipal.getBotonAZ()) {	
 	    	reproducirSonido(sonidoBoton);

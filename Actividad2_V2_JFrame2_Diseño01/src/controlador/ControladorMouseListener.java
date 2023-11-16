@@ -19,9 +19,7 @@ public class ControladorMouseListener implements MouseListener{
 	//referencia a la vista creando una variable
 	 private VistaPrincipal vistaPrincipal;
 	 private VistaSecundaria vistaSecundaria;
-	 
-	 String sonidoBoton="audio/no-sonido.wav";
-	
+
 	
 	 public ControladorMouseListener (VistaPrincipal vista) {
 		 this.vistaPrincipal = vista;
@@ -64,26 +62,16 @@ public class ControladorMouseListener implements MouseListener{
 			vistaPrincipal.getBotonCargar().setBackground(Color.LIGHT_GRAY);
 		}
 		if (e.getSource() == vistaPrincipal.getBotonSonido()) {
-			FlatSVGIcon svgIconoSonido = new FlatSVGIcon("main/svg/sound2.svg",30, 30);
-			vistaPrincipal.getBotonSonido().setIcon(svgIconoSonido);
 			vistaPrincipal.getBotonSonido().setContentAreaFilled(true);
 		}
-		if (e.getSource() == vistaPrincipal.getBotonNoSonido()) {
-			FlatSVGIcon svgIconoNoSonido = new FlatSVGIcon("main/svg/mute2.svg",30, 30);
-			vistaPrincipal.getBotonNoSonido().setIcon(svgIconoNoSonido);
-			vistaPrincipal.getBotonNoSonido().setContentAreaFilled(true);
-		}
 		if (e.getSource() == vistaPrincipal.getBotonAZ()) {
-			//vistaPrincipal.getBotonAZ().setSize(50, 50);
-			FlatSVGIcon svgIconoAz = new FlatSVGIcon("main/svg/clasificar5.svg",30, 30);
-			vistaPrincipal.getBotonAZ().setIcon(svgIconoAz);
 			vistaPrincipal.getBotonAZ().setContentAreaFilled(true);
 		}
 		if (vistaSecundaria != null && e.getSource() == vistaSecundaria.getBotonOk()) {
-			vistaSecundaria.getBotonOk().setBackground(Color.BLUE);
+			vistaSecundaria.getBotonOk().setBackground(Color.LIGHT_GRAY);
 		}
 		if (vistaSecundaria != null && e.getSource() == vistaSecundaria.getBotonCancel()) {
-			vistaSecundaria.getBotonCancel().setBackground(Color.BLUE);
+			vistaSecundaria.getBotonCancel().setBackground(Color.LIGHT_GRAY);
 		}
 		
 	}
@@ -106,19 +94,9 @@ public class ControladorMouseListener implements MouseListener{
 			vistaPrincipal.getBotonCargar().setBackground(Color.WHITE);
 		}
 		if (e.getSource() == vistaPrincipal.getBotonSonido()) {
-			FlatSVGIcon svgIconoSonido = new FlatSVGIcon("main/svg/sound2-blanco.svg",30, 30);
-			vistaPrincipal.getBotonSonido().setIcon(svgIconoSonido);
 			vistaPrincipal.getBotonSonido().setContentAreaFilled(false);
 		}
-		if (e.getSource() == vistaPrincipal.getBotonNoSonido()) {
-			FlatSVGIcon svgIconoNoSonido = new FlatSVGIcon("main/svg/mute2-blanco.svg",30, 30);
-			vistaPrincipal.getBotonNoSonido().setIcon(svgIconoNoSonido);
-			vistaPrincipal.getBotonNoSonido().setContentAreaFilled(false);
-		}
 		if (e.getSource() == vistaPrincipal.getBotonAZ()) {
-			//vistaPrincipal.getBotonAZ().setSize(30, 30);
-			FlatSVGIcon svgIconoAz = new FlatSVGIcon("main/svg/clasificar5-blanco.svg",30, 30);
-			vistaPrincipal.getBotonAZ().setIcon(svgIconoAz);
 			vistaPrincipal.getBotonAZ().setContentAreaFilled(false);
 		}
 		if (vistaSecundaria != null && e.getSource() == vistaSecundaria.getBotonOk()) {
@@ -128,28 +106,6 @@ public class ControladorMouseListener implements MouseListener{
 			vistaSecundaria.getBotonCancel().setBackground(Color.WHITE);
 		}
 		
-	}
-	
-//reproducir sonidos con la clase clip
-    
-    /**
-     * Metodo para reproducir un sonido a partir de un archivo de audio wav.
-     * 
-     * @param ruta representa la ruta del archivo de sonido.
-     */
-    private void reproducirSonido(String ruta) {
-        try {
-            File file = new File(ruta);
-            if (file.exists()) {
-                Clip clip = AudioSystem.getClip();
-                clip.open(AudioSystem.getAudioInputStream(file));
-                clip.start();
-            } else {
-                System.out.println("El archivo de sonido no existe: " + ruta);
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
+	}	
 
 }

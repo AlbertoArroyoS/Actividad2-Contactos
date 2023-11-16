@@ -117,6 +117,7 @@ public class VistaPrincipal extends JFrame{
 		botonAdd.setBackground(Color.WHITE);
 		botonAdd.setFont(new Font("Dialog",Font.BOLD,13));
 		botonAdd.setCursor(new Cursor(Cursor.HAND_CURSOR)); // ponemos el cursor de la mano al pasar por el boton
+		botonAdd.setFocusable(false);
 		background.add(botonAdd);
 		
 		botonDelete = new JButton("Eliminar contacto");
@@ -124,6 +125,7 @@ public class VistaPrincipal extends JFrame{
 		botonDelete.setBackground(Color.WHITE);
 		botonDelete.setFont(new Font("Dialog",Font.BOLD,13));
 		botonDelete.setCursor(new Cursor(Cursor.HAND_CURSOR)); // ponemos el cursor de la mano al pasar por el boton
+		botonDelete.setFocusable(false);
 		background.add(botonDelete);
 		
 		botonEdit = new JButton("Editar contacto");
@@ -131,6 +133,7 @@ public class VistaPrincipal extends JFrame{
 		botonEdit.setBackground(Color.WHITE);
 		botonEdit.setFont(new Font("Dialog",Font.BOLD,13));
 		botonEdit.setCursor(new Cursor(Cursor.HAND_CURSOR)); // ponemos el cursor de la mano al pasar por el boton
+		botonEdit.setFocusable(false);
 		background.add(botonEdit);
 		
 		//botonos de guardar y cargar
@@ -139,6 +142,7 @@ public class VistaPrincipal extends JFrame{
 		botonGuardar.setBackground(Color.WHITE);
 		botonGuardar.setFont(new Font("Dialog",Font.BOLD,13));
 		botonGuardar.setCursor(new Cursor(Cursor.HAND_CURSOR)); // ponemos el cursor de la mano al pasar por el boton
+		botonGuardar.setFocusable(false);
 		background.add(botonGuardar);
 		
 		botonCargar = new JButton("Cargar");
@@ -146,6 +150,7 @@ public class VistaPrincipal extends JFrame{
 		botonCargar.setBackground(Color.WHITE);
 		botonCargar.setFont(new Font("Dialog",Font.BOLD,13));
 		botonCargar.setCursor(new Cursor(Cursor.HAND_CURSOR)); // ponemos el cursor de la mano al pasar por el boton
+		botonCargar.setFocusable(false);
 		background.add(botonCargar);
 		
 		/*
@@ -183,30 +188,18 @@ public class VistaPrincipal extends JFrame{
 		//añadir el icono al panel
 		background.add(icono);
 		
-	    FlatSVGIcon svgIconoSonido = new FlatSVGIcon("main/svg/sound2-blanco.svg",30, 30);	    
+	    FlatSVGIcon svgIconoSonido = new FlatSVGIcon("main/svg/mute2.svg",30, 30);	    
 	    botonSonido = new JButton(svgIconoSonido);
 	    botonSonido.setBounds(20, 320, 30, 30);
 	    botonSonido.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
 	    botonSonido.setBorderPainted(false); // Elimina el borde del botón
 	    botonSonido.setCursor(new Cursor(Cursor.HAND_CURSOR)); // ponemos el cursor de la mano al pasar por el boton
 	    background.add(botonSonido);
-	     
-	
-		//ImageIcon sonidoNoIcon = new ImageIcon("img/silencio-naranja.png");
-	    //Image imageNoSonido = sonidoNoIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-	    //sonidoNoIcon = new ImageIcon(imageNoSonido);
-	    FlatSVGIcon svgIconoNoSonido = new FlatSVGIcon("main/svg/mute2-blanco.svg",30, 30);	    
-	    botonNoSonido = new JButton(svgIconoNoSonido);
-	    botonNoSonido.setBounds(60, 320, 30, 30);
-	    botonNoSonido.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
-	    botonNoSonido.setBorderPainted(false); // Elimina el borde del botón
-	    botonNoSonido.setCursor(new Cursor(Cursor.HAND_CURSOR)); // ponemos el cursor de la mano al pasar por el boton
-	    background.add(botonNoSonido);
-	     
+	     	     
 	
 	    //ImageIcon iconoOrdenar = new ImageIcon("img/clasificar2.png");
 	   // Image imageOrdenar = iconoOrdenar.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-	    FlatSVGIcon svgIconoAz = new FlatSVGIcon("main/svg/clasificar5-blanco.svg",30, 30);
+	    FlatSVGIcon svgIconoAz = new FlatSVGIcon("main/svg/clasificar5.svg",30, 30);
 	    botonAZ = new JButton(svgIconoAz);
 	    botonAZ.setBounds(160, 50, 30, 30);
 	    botonAZ.setContentAreaFilled(false); // Hace que el área del botón no sea pintada
@@ -261,7 +254,6 @@ public class VistaPrincipal extends JFrame{
 		botonGuardar.addActionListener(controlador);
 		botonCargar.addActionListener(controlador);
 		botonSonido.addActionListener(controlador);
-		botonNoSonido.addActionListener(controlador);
 		botonAZ.addActionListener(controlador);
 		
 	}
@@ -275,7 +267,6 @@ public class VistaPrincipal extends JFrame{
 		botonGuardar.addMouseListener(controlador);
 		botonCargar.addMouseListener(controlador);
 		botonSonido.addMouseListener(controlador);
-		botonNoSonido.addMouseListener(controlador);
 		botonAZ.addMouseListener(controlador);
 		
 	}
