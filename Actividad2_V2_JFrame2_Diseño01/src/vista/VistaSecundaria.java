@@ -91,9 +91,14 @@ public class VistaSecundaria extends JDialog {
         		boolean mayusculas = key >=65 && key <=90;
         		boolean minusculas = key >=97 && key <= 122;
         		boolean espacio = key == 32;
-        		//Si se introduce algo que no sean letras mayusculas o minusculas
-        		if (!(mayusculas || minusculas || espacio)) {
-        			e.consume();
+        		// letras con acento en mayúsculas y minúsculas
+                boolean vocalesAcentuadas = (key == 'á' || key == 'é' || key == 'í' || key == 'ó' || key == 'ú' ||
+                                              key == 'Á' || key == 'É' || key == 'Í' || key == 'Ó' || key == 'Ú');
+                // letra ñ
+                boolean nN = (key == 'ñ' || key == 'Ñ');
+                // Si se introduce algo que no sean letras o espacio
+                if (!(mayusculas || minusculas || espacio || vocalesAcentuadas || nN)) {
+                    e.consume();
         		}
         		
         	}
