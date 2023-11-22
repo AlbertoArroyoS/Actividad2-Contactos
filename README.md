@@ -152,7 +152,7 @@ Selecciono contacto a eliminar
 
 ![Imagen](imgReadme/image37.png)
 
-Cuando tenemos los contactos en la agenda le damos a guardar, utilizaré
+Cuando tenemos los contactos en la agenda le damos a guardar, utilicé
 JFileChooser Java Swing y lo guardo en un txt.
 
 Cambia el título de la ventana
@@ -167,7 +167,7 @@ Cambia el título de la ventana
 
 ![Imagen](imgReadme/image41.png)
 
-Utilizaré JFileChooser Java Swing
+Utilicé JFileChooser Java Swing
 
 ![Imagen](imgReadme/image42.png)
 
