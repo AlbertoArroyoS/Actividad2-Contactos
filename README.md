@@ -10,6 +10,8 @@ Alberto Arroyo Santofimia
 ![Imagen](imgReadme/image1.png)
 ![Imagen](imgReadme/image2.png)
 
+La aplicación tiene un background gradiente que pasa entre dos colores
+
 Se a cambiado el nombre y el icono que aparece en la aplicación y la
 barra de tareas de Windows
 
