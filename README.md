@@ -4,7 +4,7 @@ Desarrollo de Interfaces. Actividad 2. Aplicación de gestión de contactos
 Realizada por:
 Alberto Arroyo Santofimia
 
-**Aplicación de contactos**
+**Aplicación de contactos con Java Swing **
 
 
 ![Imagen](imgReadme/image1.png)
