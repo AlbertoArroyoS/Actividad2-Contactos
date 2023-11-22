@@ -9,6 +9,7 @@ Alberto Arroyo Santofimia
 
 ![Imagen](imgReadme/image1.png)
 ![Imagen](imgReadme/image2.png)
+
 Se a cambiado el nombre y el icono que aparece en la aplicación y la
 barra de tareas de Windows
 
@@ -27,6 +28,7 @@ library
 
 ![Imagen](imgReadme/image6.png)
 ![Imagen](imgReadme/image7.png)
+
 Podemos poner la aplicación son sonido o sin sonido pulsando sobre la
 imagen, se cambiará automáticamente y desactiva o activa el sonido según
 corresponda
@@ -52,6 +54,7 @@ para que se note que son botones tambien y cambio el cursor del ratón.
 ![Imagen](imgReadme/image12.png)
 
 ![Imagen](imgReadme/image13.png)
+
 **1º Opción añadir contacto**
 
 ![Imagen](imgReadme/image14.png)
