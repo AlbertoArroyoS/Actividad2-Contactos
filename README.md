@@ -68,9 +68,11 @@ Desplegara la ventana secundaria
 Respecto a la ventana principal se cambia el icono y el nombre
 
 ![Imagen](imgReadme/image16.png)
+
 Botones de ok y cancel reemplazados por imágenes svg
 
 ![Imagen](imgReadme/image17.png)
+
 En el campo nombre solo se acepta el abecedario, vocales con acento y el
 espacio, si no, no se consume nada en la caja, lo he bloqueado
 
@@ -103,6 +105,7 @@ Si los dos campos están correctos en nombre se añade
 **2º Opción editar contacto**
 
 ![Imagen](imgReadme/image24.png)
+
 Si no seleccionamos ningún contacto a editar
 
 ![Imagen](imgReadme/image25.png)
@@ -171,6 +174,7 @@ Utilizaré JFileChooser Java Swing
 Se cambia el título de la ventana
 
 ![Imagen](imgReadme/image43.png)
+
 Selecciono el archivo creado anteriormente
 
 ![Imagen](imgReadme/image44.png)
