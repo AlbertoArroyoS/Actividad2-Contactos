@@ -128,6 +128,7 @@ dígitos saltan los mismos avisos que al añadir contacto
 ![Imagen](imgReadme/image29.png)
 
 ![Imagen](imgReadme/image30.png)
+
 Haciendo doble clic sobre el contacto tambien se puede editar
 
 ![Imagen](imgReadme/image31.png)
