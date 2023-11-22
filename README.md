@@ -140,7 +140,7 @@ Si no se selecciona contacto a eliminar
 
 ![Imagen](imgReadme/image34.png)
 
-Selecciono contacto a eliminar
+Elimino contacto Alberto
 
 ![Imagen](imgReadme/image35.png)
 
