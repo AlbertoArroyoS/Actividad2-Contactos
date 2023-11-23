@@ -1,9 +1,6 @@
 package vista;
 
 import java.awt.Toolkit;
-import java.awt.event.MouseListener;
-
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -18,7 +15,6 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.FontFormatException;
-import java.awt.Image;
 import java.io.IOException;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 

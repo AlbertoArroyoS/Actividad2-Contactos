@@ -2,12 +2,12 @@ package vista;
 
 import java.awt.Color;
 
+
 import java.awt.Cursor;
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.Toolkit;
 
-import javax.swing.ImageIcon;
+
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;

@@ -2,14 +2,10 @@ package controlador;
 
 import java.awt.Color;
 
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.File;
 
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-
-import com.formdev.flatlaf.extras.FlatSVGIcon;
 
 import vista.VistaPrincipal;
 import vista.VistaSecundaria;
