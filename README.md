@@ -1,14 +1,17 @@
-# Actividad2-Contactos
-Desarrollo de Interfaces. Actividad 2. Aplicación de gestión de contactos
+# AE2: Aplicación de gestión de contactos con Java Swing
+Desarrollo de Interfaces.
 
 Realizada por:
 Alberto Arroyo Santofimia
 
-**Aplicación de contactos**
+**Aplicación de contactos con Java Swing**
 
 
 ![Imagen](imgReadme/image1.png)
 ![Imagen](imgReadme/image2.png)
+
+La aplicación tiene un background gradiente que pasa entre dos colores
+
 Se a cambiado el nombre y el icono que aparece en la aplicación y la
 barra de tareas de Windows
 
@@ -27,6 +30,7 @@ library
 
 ![Imagen](imgReadme/image6.png)
 ![Imagen](imgReadme/image7.png)
+
 Podemos poner la aplicación son sonido o sin sonido pulsando sobre la
 imagen, se cambiará automáticamente y desactiva o activa el sonido según
 corresponda
@@ -52,6 +56,7 @@ para que se note que son botones tambien y cambio el cursor del ratón.
 ![Imagen](imgReadme/image12.png)
 
 ![Imagen](imgReadme/image13.png)
+
 **1º Opción añadir contacto**
 
 ![Imagen](imgReadme/image14.png)
@@ -63,9 +68,11 @@ Desplegara la ventana secundaria
 Respecto a la ventana principal se cambia el icono y el nombre
 
 ![Imagen](imgReadme/image16.png)
+
 Botones de ok y cancel reemplazados por imágenes svg
 
 ![Imagen](imgReadme/image17.png)
+
 En el campo nombre solo se acepta el abecedario, vocales con acento y el
 espacio, si no, no se consume nada en la caja, lo he bloqueado
 
@@ -98,6 +105,7 @@ Si los dos campos están correctos en nombre se añade
 **2º Opción editar contacto**
 
 ![Imagen](imgReadme/image24.png)
+
 Si no seleccionamos ningún contacto a editar
 
 ![Imagen](imgReadme/image25.png)
@@ -120,9 +128,7 @@ dígitos saltan los mismos avisos que al añadir contacto
 ![Imagen](imgReadme/image29.png)
 
 ![Imagen](imgReadme/image30.png)
-Haciendo doble clic sobre el contacto tambien se puede editar
 
-![Imagen](imgReadme/image31.png)
 
 **3º Opción eliminar contacto**
 
@@ -134,7 +140,7 @@ Si no se selecciona contacto a eliminar
 
 ![Imagen](imgReadme/image34.png)
 
-Selecciono contacto a eliminar
+Elimino contacto Alberto
 
 ![Imagen](imgReadme/image35.png)
 
@@ -144,7 +150,7 @@ Selecciono contacto a eliminar
 
 ![Imagen](imgReadme/image37.png)
 
-Cuando tenemos los contactos en la agenda le damos a guardar, utilizaré
+Cuando tenemos los contactos en la agenda le damos a guardar, utilicé
 JFileChooser Java Swing y lo guardo en un txt.
 
 Cambia el título de la ventana
@@ -159,13 +165,14 @@ Cambia el título de la ventana
 
 ![Imagen](imgReadme/image41.png)
 
-Utilizaré JFileChooser Java Swing
+Utilicé JFileChooser Java Swing
 
 ![Imagen](imgReadme/image42.png)
 
 Se cambia el título de la ventana
 
 ![Imagen](imgReadme/image43.png)
+
 Selecciono el archivo creado anteriormente
 
 ![Imagen](imgReadme/image44.png)
