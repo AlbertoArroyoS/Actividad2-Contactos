@@ -205,19 +205,31 @@ public class VistaPrincipal extends JFrame{
 	    botonAZ.setFocusable(false);
 	    background.add(botonAZ);
 	  
+	    /*
+	    nombreApp = new JLabel("MIS CONTACTOS");		
+		//alineacion centrada
+		nombreApp.setHorizontalAlignment(SwingConstants.CENTER);
+		//meter la fuente
+		//--->nombreApp.setFont(font.deriveFont(20f));
+		nombreApp.setFont(new Font("Roboto Black",Font.BOLD,25));
+		//colocar la etiqueta
+		nombreApp.setBounds(209, 10, 271, 22);
+		//color de la letra en blanco
+		nombreApp.setForeground(Color.WHITE);
+		background.add(nombreApp);
     
-		
-		//Cambiar la fuente de la ventana
+		*/
+		//Cambiar la fuente externa ttf 
 		
 		try {
-			Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("TERMINAT.ttf"));
-	
+			Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("../fonts/TERMINAT.TTF"));
 			//crear la label con esa fuente
 			nombreApp = new JLabel("MIS CONTACTOS");		
 			//alineacion centrada
 			nombreApp.setHorizontalAlignment(SwingConstants.CENTER);
 			//meter la fuente
 			nombreApp.setFont(font.deriveFont(20f));
+
 			//colocar la etiqueta
 			nombreApp.setBounds(209, 10, 271, 22);
 			//color de la letra en blanco
